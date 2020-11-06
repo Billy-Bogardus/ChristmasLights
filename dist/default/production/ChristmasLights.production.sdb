@@ -1,0 +1,191 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F14K22 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"50 D:\UserData\Documents\KiCad\ChristmasLights\main.c
+[v _main main `(v  1 e 1 0 ]
+"50 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"57
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"55 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"10 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+[v _WS_Word WS_Word `(v  1 e 1 0 ]
+"45
+[v _WS_Write WS_Write `(v  1 e 1 0 ]
+"68
+[v _WSLoop WSLoop `(v  1 e 1 0 ]
+"557 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
+[v _WPUA WPUA `VEuc  1 e 1 @3959 ]
+"615
+[v _WPUB WPUB `VEuc  1 e 1 @3960 ]
+"769
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"889
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"1542
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+[s S29 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"1565
+[s S36 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+]
+[u S43 . 1 `S29 1 . 1 0 `S36 1 . 1 0 ]
+[v _LATAbits LATAbits `VES43  1 e 1 @3977 ]
+"1620
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1686
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1798
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1952
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2082
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2304
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+"5438
+[v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
+"5470
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S124 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RABPU 1 0 :1:7 
+]
+"6028
+[s S127 . 1 `uc 1 RABIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRABPU 1 0 :1:7 
+]
+[s S136 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RABPU 1 0 :1:7 
+]
+[s S140 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+[s S143 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[u S146 . 1 `S124 1 . 1 0 `S127 1 . 1 0 `S136 1 . 1 0 `S140 1 . 1 0 `S143 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES146  1 e 1 @4081 ]
+[s S175 . 1 `uc 1 RABIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RABIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6124
+[s S184 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S193 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S197 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PIE 1 0 :1:6 
+]
+[u S200 . 1 `S175 1 . 1 0 `S184 1 . 1 0 `S193 1 . 1 0 `S197 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES200  1 e 1 @4082 ]
+"6952
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"50 D:\UserData\Documents\KiCad\ChristmasLights\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"76
+} 0
+"68 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+[v _WSLoop WSLoop `(v  1 e 1 0 ]
+{
+"207
+} 0
+"10
+[v _WS_Word WS_Word `(v  1 e 1 0 ]
+{
+"33
+[v WS_Word@x_80 x `i  1 a 2 15 ]
+"28
+[v WS_Word@x_79 x `i  1 a 2 13 ]
+"23
+[v WS_Word@x x `i  1 a 2 11 ]
+"19
+[v WS_Word@i i `i  1 a 2 19 ]
+"18
+[v WS_Word@Bx Bx `i  1 a 2 17 ]
+"10
+[v WS_Word@A A `i  1 p 2 2 ]
+[v WS_Word@B B `i  1 p 2 4 ]
+[v WS_Word@C C `i  1 p 2 6 ]
+"42
+} 0
+"45
+[v _WS_Write WS_Write `(v  1 e 1 0 ]
+{
+[v WS_Write@A A `i  1 p 2 0 ]
+"64
+} 0
+"50 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"55
+} 0
+"55 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"91
+} 0
+"57 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"65
+} 0
