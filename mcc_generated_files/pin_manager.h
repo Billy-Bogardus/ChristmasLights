@@ -82,6 +82,23 @@
 #define IO_RA2_SetAnalogMode()      do { ANSELbits.ANS2 = 1; } while(0)
 #define IO_RA2_SetDigitalMode()     do { ANSELbits.ANS2 = 0; } while(0)
 
+// get/set channel_AN10 aliases
+#define channel_AN10_TRIS                 TRISBbits.TRISB4
+#define channel_AN10_LAT                  LATBbits.LATB4
+#define channel_AN10_PORT                 PORTBbits.RB4
+#define channel_AN10_WPU                  WPUBbits.WPUB4
+#define channel_AN10_ANS                  ANSELHbits.ANS10
+#define channel_AN10_SetHigh()            do { LATBbits.LATB4 = 1; } while(0)
+#define channel_AN10_SetLow()             do { LATBbits.LATB4 = 0; } while(0)
+#define channel_AN10_Toggle()             do { LATBbits.LATB4 = ~LATBbits.LATB4; } while(0)
+#define channel_AN10_GetValue()           PORTBbits.RB4
+#define channel_AN10_SetDigitalInput()    do { TRISBbits.TRISB4 = 1; } while(0)
+#define channel_AN10_SetDigitalOutput()   do { TRISBbits.TRISB4 = 0; } while(0)
+#define channel_AN10_SetPullup()          do { WPUBbits.WPUB4 = 1; } while(0)
+#define channel_AN10_ResetPullup()        do { WPUBbits.WPUB4 = 0; } while(0)
+#define channel_AN10_SetAnalogMode()      do { ANSELHbits.ANS10 = 1; } while(0)
+#define channel_AN10_SetDigitalMode()     do { ANSELHbits.ANS10 = 0; } while(0)
+
 /**
    @Param
     none

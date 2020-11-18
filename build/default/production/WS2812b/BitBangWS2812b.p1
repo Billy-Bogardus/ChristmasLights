@@ -1,6 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"43 WS2812b/BitBangWS2812b.h
-[; ;WS2812b/BitBangWS2812b.h: 43: void WS_Write(int);
+"49 WS2812b/BitBangWS2812b.h
+[; ;WS2812b/BitBangWS2812b.h: 49: void WS_Word(int A, int B, int C);
+[v _WS_Word `(v ~T0 @X0 0 ef3`i`i`i ]
+"55
+[; ;WS2812b/BitBangWS2812b.h: 55: void WS_Write(int);
 [v _WS_Write `(v ~T0 @X0 0 ef1`i ]
 "1548 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 1548:     struct {
@@ -20,13 +23,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+[v F2404 `(v ~T0 @X0 1 tf1`ul ]
+"203
+[v __delay `JF2404 ~T0 @X0 0 e ]
+[p i __delay ]
 "6952 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 6952: extern volatile __bit GIE __attribute__((address(0x7F97)));
 [v _GIE `Vb ~T0 @X0 0 e@32663 ]
-[v F2404 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF2404 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 54: __asm("SRCON0 equ 0F68h");
 [; <" SRCON0 equ 0F68h ;# ">
@@ -454,573 +457,670 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 6416: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "10 WS2812b/BitBangWS2812b.c
-[; ;WS2812b/BitBangWS2812b.c: 10: void WS_Word(int A,int B,int C)
-[v _WS_Word `(v ~T0 @X0 1 ef3`i`i`i ]
+[; ;WS2812b/BitBangWS2812b.c: 10: void WS_dim(int A, int B, int C, int brightness)
+[v _WS_dim `(v ~T0 @X0 1 ef4`i`i`i`i ]
 "11
 [; ;WS2812b/BitBangWS2812b.c: 11: {
 {
-[e :U _WS_Word ]
+[e :U _WS_dim ]
 "10
-[; ;WS2812b/BitBangWS2812b.c: 10: void WS_Word(int A,int B,int C)
+[; ;WS2812b/BitBangWS2812b.c: 10: void WS_dim(int A, int B, int C, int brightness)
 [v _A `i ~T0 @X0 1 r1 ]
 [v _B `i ~T0 @X0 1 r2 ]
 [v _C `i ~T0 @X0 1 r3 ]
+[v _brightness `i ~T0 @X0 1 r4 ]
 "11
 [; ;WS2812b/BitBangWS2812b.c: 11: {
 [f ]
+"12
+[; ;WS2812b/BitBangWS2812b.c: 12:     if( brightness > 0 && brightness <=8)
+[e $ ! && > _brightness -> 0 `i <= _brightness -> 8 `i 285  ]
+"13
+[; ;WS2812b/BitBangWS2812b.c: 13:     {
+{
+"14
+[; ;WS2812b/BitBangWS2812b.c: 14:         A = A >> brightness;
+[e = _A >> _A _brightness ]
+"15
+[; ;WS2812b/BitBangWS2812b.c: 15:         B = B >> brightness;
+[e = _B >> _B _brightness ]
+"16
+[; ;WS2812b/BitBangWS2812b.c: 16:         C = C >> brightness;
+[e = _C >> _C _brightness ]
+"17
+[; ;WS2812b/BitBangWS2812b.c: 17:     }
+}
+[e :U 285 ]
 "18
-[; ;WS2812b/BitBangWS2812b.c: 18:     int Bx = 0;
+[; ;WS2812b/BitBangWS2812b.c: 18:     WS_Word(A, B, C);
+[e ( _WS_Word (3 , , _A _B _C ]
+"19
+[; ;WS2812b/BitBangWS2812b.c: 19: }
+[e :UE 284 ]
+}
+"21
+[; ;WS2812b/BitBangWS2812b.c: 21: void WS_Word(int A,int B,int C)
+[v _WS_Word `(v ~T0 @X0 1 ef3`i`i`i ]
+"22
+[; ;WS2812b/BitBangWS2812b.c: 22: {
+{
+[e :U _WS_Word ]
+"21
+[; ;WS2812b/BitBangWS2812b.c: 21: void WS_Word(int A,int B,int C)
+[v _A `i ~T0 @X0 1 r1 ]
+[v _B `i ~T0 @X0 1 r2 ]
+[v _C `i ~T0 @X0 1 r3 ]
+"22
+[; ;WS2812b/BitBangWS2812b.c: 22: {
+[f ]
+"29
+[; ;WS2812b/BitBangWS2812b.c: 29:     int Bx = 0;
 [v _Bx `i ~T0 @X0 1 a ]
 [e = _Bx -> 0 `i ]
-"19
-[; ;WS2812b/BitBangWS2812b.c: 19:     for(int i=23; i!=-1; i--)
+"30
+[; ;WS2812b/BitBangWS2812b.c: 30:     for(int i=23; i!=-1; i--)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 23 `i ]
-[e $ != _i -U -> 1 `i 285  ]
-[e $U 286  ]
-[e :U 285 ]
-"20
-[; ;WS2812b/BitBangWS2812b.c: 20:     {
+[e $ != _i -U -> 1 `i 287  ]
+[e $U 288  ]
+[e :U 287 ]
+"31
+[; ;WS2812b/BitBangWS2812b.c: 31:     {
 {
-"21
-[; ;WS2812b/BitBangWS2812b.c: 21:         if(i>15)
-[e $ ! > _i -> 15 `i 288  ]
-"22
-[; ;WS2812b/BitBangWS2812b.c: 22:         {
+"32
+[; ;WS2812b/BitBangWS2812b.c: 32:         if(i>15)
+[e $ ! > _i -> 15 `i 290  ]
+"33
+[; ;WS2812b/BitBangWS2812b.c: 33:         {
 {
-"23
-[; ;WS2812b/BitBangWS2812b.c: 23:             int x = i - 16;
+"34
+[; ;WS2812b/BitBangWS2812b.c: 34:             int x = i - 16;
 [v _x `i ~T0 @X0 1 a ]
 [e = _x - _i -> 16 `i ]
-"24
-[; ;WS2812b/BitBangWS2812b.c: 24:             Bx = 1 & ( B >> x );
-[e = _Bx & -> 1 `i >> _B _x ]
-"25
-[; ;WS2812b/BitBangWS2812b.c: 25:         }
-}
-[e $U 289  ]
-"26
-[; ;WS2812b/BitBangWS2812b.c: 26:         else if ( i > 7 )
-[e :U 288 ]
-[e $ ! > _i -> 7 `i 290  ]
-"27
-[; ;WS2812b/BitBangWS2812b.c: 27:         {
-{
-"28
-[; ;WS2812b/BitBangWS2812b.c: 28:             int x = i - 8;
-[v _x `i ~T0 @X0 1 a ]
-[e = _x - _i -> 8 `i ]
-"29
-[; ;WS2812b/BitBangWS2812b.c: 29:             Bx = 0b00000001 & ( A >> x );
+"35
+[; ;WS2812b/BitBangWS2812b.c: 35:             Bx = 1 & ( A >> x );
 [e = _Bx & -> 1 `i >> _A _x ]
-"30
-[; ;WS2812b/BitBangWS2812b.c: 30:         }
+"36
+[; ;WS2812b/BitBangWS2812b.c: 36:         }
 }
 [e $U 291  ]
-"31
-[; ;WS2812b/BitBangWS2812b.c: 31:         else if ( i >= 0 )
+"37
+[; ;WS2812b/BitBangWS2812b.c: 37:         else if ( i > 7 )
 [e :U 290 ]
-[e $ ! >= _i -> 0 `i 292  ]
-"32
-[; ;WS2812b/BitBangWS2812b.c: 32:         {
+[e $ ! > _i -> 7 `i 292  ]
+"38
+[; ;WS2812b/BitBangWS2812b.c: 38:         {
 {
-"33
-[; ;WS2812b/BitBangWS2812b.c: 33:             int x = i;
+"39
+[; ;WS2812b/BitBangWS2812b.c: 39:             int x = i - 8;
 [v _x `i ~T0 @X0 1 a ]
-[e = _x _i ]
-"34
-[; ;WS2812b/BitBangWS2812b.c: 34:             Bx = 0b00000001 & ( C >> x );
-[e = _Bx & -> 1 `i >> _C _x ]
-"35
-[; ;WS2812b/BitBangWS2812b.c: 35:         }
+[e = _x - _i -> 8 `i ]
+"40
+[; ;WS2812b/BitBangWS2812b.c: 40:             Bx = 0b00000001 & ( B >> x );
+[e = _Bx & -> 1 `i >> _B _x ]
+"41
+[; ;WS2812b/BitBangWS2812b.c: 41:         }
 }
 [e $U 293  ]
-"36
-[; ;WS2812b/BitBangWS2812b.c: 36:         else
-[e :U 292 ]
-"37
-[; ;WS2812b/BitBangWS2812b.c: 37:         {
-{
-"38
-[; ;WS2812b/BitBangWS2812b.c: 38:             Bx = 1;
-[e = _Bx -> 1 `i ]
-"39
-[; ;WS2812b/BitBangWS2812b.c: 39:         }
-}
-[e :U 293 ]
-[e :U 291 ]
-[e :U 289 ]
-"40
-[; ;WS2812b/BitBangWS2812b.c: 40:         WS_Write(Bx);
-[e ( _WS_Write (1 _Bx ]
-"41
-[; ;WS2812b/BitBangWS2812b.c: 41:     }
-}
-[e -- _i -> 1 `i ]
-[e $ != _i -U -> 1 `i 285  ]
-[e :U 286 ]
-}
 "42
-[; ;WS2812b/BitBangWS2812b.c: 42: }
-[e :UE 284 ]
-}
-"45
-[; ;WS2812b/BitBangWS2812b.c: 45: void WS_Write( int A )
-[v _WS_Write `(v ~T0 @X0 1 ef1`i ]
-"46
-[; ;WS2812b/BitBangWS2812b.c: 46: {
+[; ;WS2812b/BitBangWS2812b.c: 42:         else if ( i >= 0 )
+[e :U 292 ]
+[e $ ! >= _i -> 0 `i 294  ]
+"43
+[; ;WS2812b/BitBangWS2812b.c: 43:         {
 {
-[e :U _WS_Write ]
+"44
+[; ;WS2812b/BitBangWS2812b.c: 44:             int x = i;
+[v _x `i ~T0 @X0 1 a ]
+[e = _x _i ]
 "45
-[; ;WS2812b/BitBangWS2812b.c: 45: void WS_Write( int A )
-[v _A `i ~T0 @X0 1 r1 ]
+[; ;WS2812b/BitBangWS2812b.c: 45:             Bx = 0b00000001 & ( C >> x );
+[e = _Bx & -> 1 `i >> _C _x ]
 "46
-[; ;WS2812b/BitBangWS2812b.c: 46: {
-[f ]
+[; ;WS2812b/BitBangWS2812b.c: 46:         }
+}
+[e $U 295  ]
 "47
-[; ;WS2812b/BitBangWS2812b.c: 47:     if(A)
-[e $ ! != _A -> 0 `i 295  ]
+[; ;WS2812b/BitBangWS2812b.c: 47:         else
+[e :U 294 ]
 "48
-[; ;WS2812b/BitBangWS2812b.c: 48:     {
+[; ;WS2812b/BitBangWS2812b.c: 48:         {
 {
 "49
-[; ;WS2812b/BitBangWS2812b.c: 49:         LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;WS2812b/BitBangWS2812b.c: 49:             Bx = 1;
+[e = _Bx -> 1 `i ]
 "50
-[; ;WS2812b/BitBangWS2812b.c: 50:         __nop();
-[e ( ___nop ..  ]
-"51
-[; ;WS2812b/BitBangWS2812b.c: 51:         __nop();
-[e ( ___nop ..  ]
-"52
-[; ;WS2812b/BitBangWS2812b.c: 52:         __nop();
-[e ( ___nop ..  ]
-"53
-[; ;WS2812b/BitBangWS2812b.c: 53:         LATAbits.LATA2 = 0;
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-"54
-[; ;WS2812b/BitBangWS2812b.c: 54:     }
+[; ;WS2812b/BitBangWS2812b.c: 50:         }
 }
-[e $U 296  ]
-"55
-[; ;WS2812b/BitBangWS2812b.c: 55:     else
 [e :U 295 ]
+[e :U 293 ]
+[e :U 291 ]
+"51
+[; ;WS2812b/BitBangWS2812b.c: 51:         WS_Write(Bx);
+[e ( _WS_Write (1 _Bx ]
+"52
+[; ;WS2812b/BitBangWS2812b.c: 52:     }
+}
+[e -- _i -> 1 `i ]
+[e $ != _i -U -> 1 `i 287  ]
+[e :U 288 ]
+}
+"53
+[; ;WS2812b/BitBangWS2812b.c: 53: }
+[e :UE 286 ]
+}
 "56
-[; ;WS2812b/BitBangWS2812b.c: 56:     {
-{
+[; ;WS2812b/BitBangWS2812b.c: 56: void WS_Write( int A )
+[v _WS_Write `(v ~T0 @X0 1 ef1`i ]
 "57
-[; ;WS2812b/BitBangWS2812b.c: 57:         LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;WS2812b/BitBangWS2812b.c: 57: {
+{
+[e :U _WS_Write ]
+"56
+[; ;WS2812b/BitBangWS2812b.c: 56: void WS_Write( int A )
+[v _A `i ~T0 @X0 1 r1 ]
+"57
+[; ;WS2812b/BitBangWS2812b.c: 57: {
+[f ]
 "58
-[; ;WS2812b/BitBangWS2812b.c: 58:         LATAbits.LATA2 = 0;
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;WS2812b/BitBangWS2812b.c: 58:     if(A)
+[e $ ! != _A -> 0 `i 297  ]
+"59
+[; ;WS2812b/BitBangWS2812b.c: 59:     {
+{
+"60
+[; ;WS2812b/BitBangWS2812b.c: 60:         LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"61
+[; ;WS2812b/BitBangWS2812b.c: 61:         __nop();
+[e ( ___nop ..  ]
 "62
-[; ;WS2812b/BitBangWS2812b.c: 62:     }
-}
-[e :U 296 ]
+[; ;WS2812b/BitBangWS2812b.c: 62:         __nop();
+[e ( ___nop ..  ]
+"63
+[; ;WS2812b/BitBangWS2812b.c: 63:         __nop();
+[e ( ___nop ..  ]
 "64
-[; ;WS2812b/BitBangWS2812b.c: 64: }
-[e :UE 294 ]
+[; ;WS2812b/BitBangWS2812b.c: 64:         LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+"65
+[; ;WS2812b/BitBangWS2812b.c: 65:     }
 }
+[e $U 298  ]
+"66
+[; ;WS2812b/BitBangWS2812b.c: 66:     else
+[e :U 297 ]
+"67
+[; ;WS2812b/BitBangWS2812b.c: 67:     {
+{
 "68
-[; ;WS2812b/BitBangWS2812b.c: 68: void WSLoop(void)
-[v _WSLoop `(v ~T0 @X0 1 ef ]
+[; ;WS2812b/BitBangWS2812b.c: 68:         LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 "69
-[; ;WS2812b/BitBangWS2812b.c: 69: {
+[; ;WS2812b/BitBangWS2812b.c: 69:         LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+"73
+[; ;WS2812b/BitBangWS2812b.c: 73:     }
+}
+[e :U 298 ]
+"75
+[; ;WS2812b/BitBangWS2812b.c: 75: }
+[e :UE 296 ]
+}
+"77
+[; ;WS2812b/BitBangWS2812b.c: 77: void WSTest(int length, int brightness)
+[v _WSTest `(v ~T0 @X0 1 ef2`i`i ]
+"78
+[; ;WS2812b/BitBangWS2812b.c: 78: {
+{
+[e :U _WSTest ]
+"77
+[; ;WS2812b/BitBangWS2812b.c: 77: void WSTest(int length, int brightness)
+[v _length `i ~T0 @X0 1 r1 ]
+[v _brightness `i ~T0 @X0 1 r2 ]
+"78
+[; ;WS2812b/BitBangWS2812b.c: 78: {
+[f ]
+"80
+[; ;WS2812b/BitBangWS2812b.c: 80:     for(int i = 0; i<length; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 303  ]
+[e :U 300 ]
+"81
+[; ;WS2812b/BitBangWS2812b.c: 81:     {
+{
+"82
+[; ;WS2812b/BitBangWS2812b.c: 82:         WS_Word(0x00, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 0 `i ]
+"83
+[; ;WS2812b/BitBangWS2812b.c: 83:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 303 ]
+[e $ < _i _length 300  ]
+[e :U 301 ]
+}
+"84
+[; ;WS2812b/BitBangWS2812b.c: 84:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"85
+[; ;WS2812b/BitBangWS2812b.c: 85:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"86
+[; ;WS2812b/BitBangWS2812b.c: 86:     int b =0;
+[v _b `i ~T0 @X0 1 a ]
+[e = _b -> 0 `i ]
+"87
+[; ;WS2812b/BitBangWS2812b.c: 87:     for(b = 0; b<length-6; b+=6 )
+{
+[e = _b -> 0 `i ]
+[e $U 307  ]
+[e :U 304 ]
+"88
+[; ;WS2812b/BitBangWS2812b.c: 88:     {
+{
+"89
+[; ;WS2812b/BitBangWS2812b.c: 89:         WS_dim(0xFF, 0x00, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 0 `i -> 0 `i _brightness ]
+"90
+[; ;WS2812b/BitBangWS2812b.c: 90:         WS_dim(0xFF, 0xFF, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 255 `i -> 0 `i _brightness ]
+"91
+[; ;WS2812b/BitBangWS2812b.c: 91:         WS_dim(0x00, 0xFF, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 255 `i -> 0 `i _brightness ]
+"92
+[; ;WS2812b/BitBangWS2812b.c: 92:         WS_dim(0x00, 0xFF, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 255 `i -> 255 `i _brightness ]
+"93
+[; ;WS2812b/BitBangWS2812b.c: 93:         WS_dim(0x00, 0x00, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 0 `i -> 255 `i _brightness ]
+"94
+[; ;WS2812b/BitBangWS2812b.c: 94:         WS_dim(0xFF, 0x00, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 0 `i -> 255 `i _brightness ]
+"95
+[; ;WS2812b/BitBangWS2812b.c: 95:     }
+}
+[e =+ _b -> 6 `i ]
+[e :U 307 ]
+[e $ < _b - _length -> 6 `i 304  ]
+[e :U 305 ]
+}
+"96
+[; ;WS2812b/BitBangWS2812b.c: 96:     while(b < length)
+[e $U 308  ]
+[e :U 309 ]
+"97
+[; ;WS2812b/BitBangWS2812b.c: 97:     {
+{
+"98
+[; ;WS2812b/BitBangWS2812b.c: 98:         WS_dim(0xFF, 0x00, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 0 `i -> 0 `i _brightness ]
+"99
+[; ;WS2812b/BitBangWS2812b.c: 99:         b++;
+[e ++ _b -> 1 `i ]
+"100
+[; ;WS2812b/BitBangWS2812b.c: 100:         if(b == length) break;
+[e $ ! == _b _length 311  ]
+[e $U 310  ]
+[e :U 311 ]
+"101
+[; ;WS2812b/BitBangWS2812b.c: 101:         WS_dim(0xFF, 0xFF, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 255 `i -> 0 `i _brightness ]
+"102
+[; ;WS2812b/BitBangWS2812b.c: 102:         b++;
+[e ++ _b -> 1 `i ]
+"103
+[; ;WS2812b/BitBangWS2812b.c: 103:         if(b == length) break;
+[e $ ! == _b _length 312  ]
+[e $U 310  ]
+[e :U 312 ]
+"104
+[; ;WS2812b/BitBangWS2812b.c: 104:         WS_dim(0x00, 0xFF, 0x00, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 255 `i -> 0 `i _brightness ]
+"105
+[; ;WS2812b/BitBangWS2812b.c: 105:         b++;
+[e ++ _b -> 1 `i ]
+"106
+[; ;WS2812b/BitBangWS2812b.c: 106:         if(b == length) break;
+[e $ ! == _b _length 313  ]
+[e $U 310  ]
+[e :U 313 ]
+"107
+[; ;WS2812b/BitBangWS2812b.c: 107:         WS_dim(0x00, 0xFF, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 255 `i -> 255 `i _brightness ]
+"108
+[; ;WS2812b/BitBangWS2812b.c: 108:         b++;
+[e ++ _b -> 1 `i ]
+"109
+[; ;WS2812b/BitBangWS2812b.c: 109:         if(b == length) break;
+[e $ ! == _b _length 314  ]
+[e $U 310  ]
+[e :U 314 ]
+"110
+[; ;WS2812b/BitBangWS2812b.c: 110:         WS_dim(0x00, 0x00, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 0 `i -> 0 `i -> 255 `i _brightness ]
+"111
+[; ;WS2812b/BitBangWS2812b.c: 111:         b++;
+[e ++ _b -> 1 `i ]
+"112
+[; ;WS2812b/BitBangWS2812b.c: 112:         if(b == length) break;
+[e $ ! == _b _length 315  ]
+[e $U 310  ]
+[e :U 315 ]
+"113
+[; ;WS2812b/BitBangWS2812b.c: 113:         WS_dim(0xFF, 0x00, 0xFF, brightness);
+[e ( _WS_dim (4 , , , -> 255 `i -> 0 `i -> 255 `i _brightness ]
+"114
+[; ;WS2812b/BitBangWS2812b.c: 114:         b++;
+[e ++ _b -> 1 `i ]
+"115
+[; ;WS2812b/BitBangWS2812b.c: 115:         if(b == length) break;
+[e $ ! == _b _length 316  ]
+[e $U 310  ]
+[e :U 316 ]
+"116
+[; ;WS2812b/BitBangWS2812b.c: 116:     }
+}
+[e :U 308 ]
+"96
+[; ;WS2812b/BitBangWS2812b.c: 96:     while(b < length)
+[e $ < _b _length 309  ]
+[e :U 310 ]
+"118
+[; ;WS2812b/BitBangWS2812b.c: 118:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"119
+[; ;WS2812b/BitBangWS2812b.c: 119:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"120
+[; ;WS2812b/BitBangWS2812b.c: 120: }
+[e :UE 299 ]
+}
+"122
+[; ;WS2812b/BitBangWS2812b.c: 122: void WSLoop(void)
+[v _WSLoop `(v ~T0 @X0 1 ef ]
+"123
+[; ;WS2812b/BitBangWS2812b.c: 123: {
 {
 [e :U _WSLoop ]
 [f ]
-"70
-[; ;WS2812b/BitBangWS2812b.c: 70:     GIE = 0;
-[e = _GIE -> -> 0 `i `b ]
-"72
-[; ;WS2812b/BitBangWS2812b.c: 72:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"73
-[; ;WS2812b/BitBangWS2812b.c: 73:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"74
-[; ;WS2812b/BitBangWS2812b.c: 74:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"75
-[; ;WS2812b/BitBangWS2812b.c: 75:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"76
-[; ;WS2812b/BitBangWS2812b.c: 76:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"77
-[; ;WS2812b/BitBangWS2812b.c: 77:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"78
-[; ;WS2812b/BitBangWS2812b.c: 78:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"79
-[; ;WS2812b/BitBangWS2812b.c: 79:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"80
-[; ;WS2812b/BitBangWS2812b.c: 80:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"81
-[; ;WS2812b/BitBangWS2812b.c: 81:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"82
-[; ;WS2812b/BitBangWS2812b.c: 82:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"83
-[; ;WS2812b/BitBangWS2812b.c: 83:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"84
-[; ;WS2812b/BitBangWS2812b.c: 84:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"85
-[; ;WS2812b/BitBangWS2812b.c: 85:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"86
-[; ;WS2812b/BitBangWS2812b.c: 86:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"87
-[; ;WS2812b/BitBangWS2812b.c: 87:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"88
-[; ;WS2812b/BitBangWS2812b.c: 88:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"89
-[; ;WS2812b/BitBangWS2812b.c: 89:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"91
-[; ;WS2812b/BitBangWS2812b.c: 91:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"92
-[; ;WS2812b/BitBangWS2812b.c: 92:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"94
-[; ;WS2812b/BitBangWS2812b.c: 94:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"95
-[; ;WS2812b/BitBangWS2812b.c: 95:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"96
-[; ;WS2812b/BitBangWS2812b.c: 96:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"97
-[; ;WS2812b/BitBangWS2812b.c: 97:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"98
-[; ;WS2812b/BitBangWS2812b.c: 98:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"99
-[; ;WS2812b/BitBangWS2812b.c: 99:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"100
-[; ;WS2812b/BitBangWS2812b.c: 100:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"101
-[; ;WS2812b/BitBangWS2812b.c: 101:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"102
-[; ;WS2812b/BitBangWS2812b.c: 102:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"103
-[; ;WS2812b/BitBangWS2812b.c: 103:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"104
-[; ;WS2812b/BitBangWS2812b.c: 104:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"105
-[; ;WS2812b/BitBangWS2812b.c: 105:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"106
-[; ;WS2812b/BitBangWS2812b.c: 106:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"107
-[; ;WS2812b/BitBangWS2812b.c: 107:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"108
-[; ;WS2812b/BitBangWS2812b.c: 108:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"109
-[; ;WS2812b/BitBangWS2812b.c: 109:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"110
-[; ;WS2812b/BitBangWS2812b.c: 110:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"111
-[; ;WS2812b/BitBangWS2812b.c: 111:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"113
-[; ;WS2812b/BitBangWS2812b.c: 113:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"114
-[; ;WS2812b/BitBangWS2812b.c: 114:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"116
-[; ;WS2812b/BitBangWS2812b.c: 116:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"117
-[; ;WS2812b/BitBangWS2812b.c: 117:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"118
-[; ;WS2812b/BitBangWS2812b.c: 118:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"119
-[; ;WS2812b/BitBangWS2812b.c: 119:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"120
-[; ;WS2812b/BitBangWS2812b.c: 120:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"121
-[; ;WS2812b/BitBangWS2812b.c: 121:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"122
-[; ;WS2812b/BitBangWS2812b.c: 122:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"123
-[; ;WS2812b/BitBangWS2812b.c: 123:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
 "124
-[; ;WS2812b/BitBangWS2812b.c: 124:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 124:     int i = 0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
 "125
-[; ;WS2812b/BitBangWS2812b.c: 125:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 125:     GIE = 0;
+[e = _GIE -> -> 0 `i `b ]
 "126
-[; ;WS2812b/BitBangWS2812b.c: 126:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 126:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 318  ]
+[e $U 319  ]
+[e :U 318 ]
 "127
-[; ;WS2812b/BitBangWS2812b.c: 127:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 127:     {
+{
 "128
-[; ;WS2812b/BitBangWS2812b.c: 128:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 128:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
 "129
-[; ;WS2812b/BitBangWS2812b.c: 129:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 129:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
 "130
-[; ;WS2812b/BitBangWS2812b.c: 130:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 130:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
 "131
-[; ;WS2812b/BitBangWS2812b.c: 131:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 131:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
 "132
-[; ;WS2812b/BitBangWS2812b.c: 132:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 132:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
 "133
-[; ;WS2812b/BitBangWS2812b.c: 133:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"135
-[; ;WS2812b/BitBangWS2812b.c: 135:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"136
-[; ;WS2812b/BitBangWS2812b.c: 136:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"138
-[; ;WS2812b/BitBangWS2812b.c: 138:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"139
-[; ;WS2812b/BitBangWS2812b.c: 139:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"140
-[; ;WS2812b/BitBangWS2812b.c: 140:     WS_Word(0x00, 0x09, 0x09);
+[; ;WS2812b/BitBangWS2812b.c: 133:         WS_Word(0x00, 0x09, 0x09);
 [e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"141
-[; ;WS2812b/BitBangWS2812b.c: 141:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"142
-[; ;WS2812b/BitBangWS2812b.c: 142:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"143
-[; ;WS2812b/BitBangWS2812b.c: 143:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"144
-[; ;WS2812b/BitBangWS2812b.c: 144:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"145
-[; ;WS2812b/BitBangWS2812b.c: 145:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"146
-[; ;WS2812b/BitBangWS2812b.c: 146:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"147
-[; ;WS2812b/BitBangWS2812b.c: 147:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"148
-[; ;WS2812b/BitBangWS2812b.c: 148:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"149
-[; ;WS2812b/BitBangWS2812b.c: 149:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"150
-[; ;WS2812b/BitBangWS2812b.c: 150:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"151
-[; ;WS2812b/BitBangWS2812b.c: 151:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"152
-[; ;WS2812b/BitBangWS2812b.c: 152:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"153
-[; ;WS2812b/BitBangWS2812b.c: 153:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"154
-[; ;WS2812b/BitBangWS2812b.c: 154:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"155
-[; ;WS2812b/BitBangWS2812b.c: 155:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"157
-[; ;WS2812b/BitBangWS2812b.c: 157:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"158
-[; ;WS2812b/BitBangWS2812b.c: 158:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"160
-[; ;WS2812b/BitBangWS2812b.c: 160:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"161
-[; ;WS2812b/BitBangWS2812b.c: 161:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"162
-[; ;WS2812b/BitBangWS2812b.c: 162:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"163
-[; ;WS2812b/BitBangWS2812b.c: 163:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"164
-[; ;WS2812b/BitBangWS2812b.c: 164:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"165
-[; ;WS2812b/BitBangWS2812b.c: 165:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"166
-[; ;WS2812b/BitBangWS2812b.c: 166:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"167
-[; ;WS2812b/BitBangWS2812b.c: 167:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"168
-[; ;WS2812b/BitBangWS2812b.c: 168:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"169
-[; ;WS2812b/BitBangWS2812b.c: 169:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"170
-[; ;WS2812b/BitBangWS2812b.c: 170:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"171
-[; ;WS2812b/BitBangWS2812b.c: 171:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"172
-[; ;WS2812b/BitBangWS2812b.c: 172:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"173
-[; ;WS2812b/BitBangWS2812b.c: 173:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"174
-[; ;WS2812b/BitBangWS2812b.c: 174:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"175
-[; ;WS2812b/BitBangWS2812b.c: 175:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"176
-[; ;WS2812b/BitBangWS2812b.c: 176:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"177
-[; ;WS2812b/BitBangWS2812b.c: 177:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"179
-[; ;WS2812b/BitBangWS2812b.c: 179:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"180
-[; ;WS2812b/BitBangWS2812b.c: 180:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"182
-[; ;WS2812b/BitBangWS2812b.c: 182:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"183
-[; ;WS2812b/BitBangWS2812b.c: 183:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"184
-[; ;WS2812b/BitBangWS2812b.c: 184:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"185
-[; ;WS2812b/BitBangWS2812b.c: 185:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"186
-[; ;WS2812b/BitBangWS2812b.c: 186:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"187
-[; ;WS2812b/BitBangWS2812b.c: 187:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"188
-[; ;WS2812b/BitBangWS2812b.c: 188:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"189
-[; ;WS2812b/BitBangWS2812b.c: 189:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"190
-[; ;WS2812b/BitBangWS2812b.c: 190:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"191
-[; ;WS2812b/BitBangWS2812b.c: 191:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"192
-[; ;WS2812b/BitBangWS2812b.c: 192:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"193
-[; ;WS2812b/BitBangWS2812b.c: 193:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"194
-[; ;WS2812b/BitBangWS2812b.c: 194:     WS_Word(0x00, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
-"195
-[; ;WS2812b/BitBangWS2812b.c: 195:     WS_Word(0x00, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
-"196
-[; ;WS2812b/BitBangWS2812b.c: 196:     WS_Word(0x09, 0x09, 0x00);
-[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
-"197
-[; ;WS2812b/BitBangWS2812b.c: 197:     WS_Word(0x09, 0x00, 0x09);
-[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
-"198
-[; ;WS2812b/BitBangWS2812b.c: 198:     WS_Word(0x00, 0x09, 0x09);
-[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
-"199
-[; ;WS2812b/BitBangWS2812b.c: 199:     WS_Word(0xFF, 0x00, 0x00);
-[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
-"201
-[; ;WS2812b/BitBangWS2812b.c: 201:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
-"202
-[; ;WS2812b/BitBangWS2812b.c: 202:     _delay((unsigned long)((250)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"205
-[; ;WS2812b/BitBangWS2812b.c: 205:     GIE =1;
-[e = _GIE -> -> 1 `i `b ]
-"207
-[; ;WS2812b/BitBangWS2812b.c: 207: }
-[e :UE 297 ]
+"134
+[; ;WS2812b/BitBangWS2812b.c: 134:     }
 }
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 318  ]
+[e :U 319 ]
+}
+"136
+[; ;WS2812b/BitBangWS2812b.c: 136:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"137
+[; ;WS2812b/BitBangWS2812b.c: 137:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"139
+[; ;WS2812b/BitBangWS2812b.c: 139:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 321  ]
+[e $U 322  ]
+[e :U 321 ]
+"140
+[; ;WS2812b/BitBangWS2812b.c: 140:     {
+{
+"141
+[; ;WS2812b/BitBangWS2812b.c: 141:         WS_Word(0x00, 0x09, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+"142
+[; ;WS2812b/BitBangWS2812b.c: 142:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+"143
+[; ;WS2812b/BitBangWS2812b.c: 143:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+"144
+[; ;WS2812b/BitBangWS2812b.c: 144:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"145
+[; ;WS2812b/BitBangWS2812b.c: 145:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+"146
+[; ;WS2812b/BitBangWS2812b.c: 146:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+"147
+[; ;WS2812b/BitBangWS2812b.c: 147:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 321  ]
+[e :U 322 ]
+}
+"149
+[; ;WS2812b/BitBangWS2812b.c: 149:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"150
+[; ;WS2812b/BitBangWS2812b.c: 150:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"153
+[; ;WS2812b/BitBangWS2812b.c: 153:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 324  ]
+[e $U 325  ]
+[e :U 324 ]
+"154
+[; ;WS2812b/BitBangWS2812b.c: 154:     {
+{
+"155
+[; ;WS2812b/BitBangWS2812b.c: 155:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+"156
+[; ;WS2812b/BitBangWS2812b.c: 156:         WS_Word(0x00, 0x09, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+"157
+[; ;WS2812b/BitBangWS2812b.c: 157:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+"158
+[; ;WS2812b/BitBangWS2812b.c: 158:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+"159
+[; ;WS2812b/BitBangWS2812b.c: 159:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"160
+[; ;WS2812b/BitBangWS2812b.c: 160:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+"161
+[; ;WS2812b/BitBangWS2812b.c: 161:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 324  ]
+[e :U 325 ]
+}
+"163
+[; ;WS2812b/BitBangWS2812b.c: 163:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"164
+[; ;WS2812b/BitBangWS2812b.c: 164:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"167
+[; ;WS2812b/BitBangWS2812b.c: 167:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 327  ]
+[e $U 328  ]
+[e :U 327 ]
+"168
+[; ;WS2812b/BitBangWS2812b.c: 168:     {
+{
+"169
+[; ;WS2812b/BitBangWS2812b.c: 169:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+"170
+[; ;WS2812b/BitBangWS2812b.c: 170:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+"171
+[; ;WS2812b/BitBangWS2812b.c: 171:         WS_Word(0x00, 0x09, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+"172
+[; ;WS2812b/BitBangWS2812b.c: 172:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+"173
+[; ;WS2812b/BitBangWS2812b.c: 173:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+"174
+[; ;WS2812b/BitBangWS2812b.c: 174:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"175
+[; ;WS2812b/BitBangWS2812b.c: 175:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 327  ]
+[e :U 328 ]
+}
+"177
+[; ;WS2812b/BitBangWS2812b.c: 177:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"178
+[; ;WS2812b/BitBangWS2812b.c: 178:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"180
+[; ;WS2812b/BitBangWS2812b.c: 180:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 330  ]
+[e $U 331  ]
+[e :U 330 ]
+"181
+[; ;WS2812b/BitBangWS2812b.c: 181:     {
+{
+"182
+[; ;WS2812b/BitBangWS2812b.c: 182:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"183
+[; ;WS2812b/BitBangWS2812b.c: 183:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+"184
+[; ;WS2812b/BitBangWS2812b.c: 184:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+"185
+[; ;WS2812b/BitBangWS2812b.c: 185:         WS_Word(0x00, 0x09, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+"186
+[; ;WS2812b/BitBangWS2812b.c: 186:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+"187
+[; ;WS2812b/BitBangWS2812b.c: 187:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+"188
+[; ;WS2812b/BitBangWS2812b.c: 188:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"189
+[; ;WS2812b/BitBangWS2812b.c: 189:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 330  ]
+[e :U 331 ]
+}
+"191
+[; ;WS2812b/BitBangWS2812b.c: 191:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"192
+[; ;WS2812b/BitBangWS2812b.c: 192:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"195
+[; ;WS2812b/BitBangWS2812b.c: 195:     for(i = 0; i<=10; i++)
+{
+[e = _i -> 0 `i ]
+[e $ <= _i -> 10 `i 333  ]
+[e $U 334  ]
+[e :U 333 ]
+"196
+[; ;WS2812b/BitBangWS2812b.c: 196:     {
+{
+"197
+[; ;WS2812b/BitBangWS2812b.c: 197:         WS_Word(0x00, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 0 `i ]
+"198
+[; ;WS2812b/BitBangWS2812b.c: 198:         WS_Word(0x00, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 0 `i -> 9 `i ]
+"199
+[; ;WS2812b/BitBangWS2812b.c: 199:         WS_Word(0x09, 0x09, 0x00);
+[e ( _WS_Word (3 , , -> 9 `i -> 9 `i -> 0 `i ]
+"200
+[; ;WS2812b/BitBangWS2812b.c: 200:         WS_Word(0x09, 0x00, 0x09);
+[e ( _WS_Word (3 , , -> 9 `i -> 0 `i -> 9 `i ]
+"201
+[; ;WS2812b/BitBangWS2812b.c: 201:         WS_Word(0x00, 0x09, 0x09);
+[e ( _WS_Word (3 , , -> 0 `i -> 9 `i -> 9 `i ]
+"202
+[; ;WS2812b/BitBangWS2812b.c: 202:         WS_Word(0xFF, 0x00, 0x00);
+[e ( _WS_Word (3 , , -> 255 `i -> 0 `i -> 0 `i ]
+"203
+[; ;WS2812b/BitBangWS2812b.c: 203:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 10 `i 333  ]
+[e :U 334 ]
+}
+"205
+[; ;WS2812b/BitBangWS2812b.c: 205:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"206
+[; ;WS2812b/BitBangWS2812b.c: 206:     _delay((unsigned long)((250)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "209
-[; ;WS2812b/BitBangWS2812b.c: 209: void WS_White(void)
+[; ;WS2812b/BitBangWS2812b.c: 209:     GIE =1;
+[e = _GIE -> -> 1 `i `b ]
+"211
+[; ;WS2812b/BitBangWS2812b.c: 211: }
+[e :UE 317 ]
+}
+"213
+[; ;WS2812b/BitBangWS2812b.c: 213: void WS_White(void)
 [v _WS_White `(v ~T0 @X0 1 ef ]
-"210
-[; ;WS2812b/BitBangWS2812b.c: 210: {
+"214
+[; ;WS2812b/BitBangWS2812b.c: 214: {
 {
 [e :U _WS_White ]
 [f ]
-"211
-[; ;WS2812b/BitBangWS2812b.c: 211:     GIE = 0;
-[e = _GIE -> -> 0 `i `b ]
-"213
-[; ;WS2812b/BitBangWS2812b.c: 213:     WS_Word(0xff, 0xff, 0xff);
-[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
-"214
-[; ;WS2812b/BitBangWS2812b.c: 214:     WS_Word(0xff, 0xff, 0xff);
-[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
 "215
-[; ;WS2812b/BitBangWS2812b.c: 215:     WS_Word(0xff, 0xff, 0xff);
-[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
+[; ;WS2812b/BitBangWS2812b.c: 215:     GIE = 0;
+[e = _GIE -> -> 0 `i `b ]
 "217
 [; ;WS2812b/BitBangWS2812b.c: 217:     WS_Word(0xff, 0xff, 0xff);
 [e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
@@ -1031,9 +1131,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;WS2812b/BitBangWS2812b.c: 219:     WS_Word(0xff, 0xff, 0xff);
 [e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
 "221
-[; ;WS2812b/BitBangWS2812b.c: 221:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
-[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;WS2812b/BitBangWS2812b.c: 221:     WS_Word(0xff, 0xff, 0xff);
+[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
 "222
-[; ;WS2812b/BitBangWS2812b.c: 222: }
-[e :UE 298 ]
+[; ;WS2812b/BitBangWS2812b.c: 222:     WS_Word(0xff, 0xff, 0xff);
+[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
+"223
+[; ;WS2812b/BitBangWS2812b.c: 223:     WS_Word(0xff, 0xff, 0xff);
+[e ( _WS_Word (3 , , -> 255 `i -> 255 `i -> 255 `i ]
+"225
+[; ;WS2812b/BitBangWS2812b.c: 225:     _delay((unsigned long)((60.000)*(32000000/4000.0)));
+[e ( __delay (1 -> * .60.000 / -> -> 32000000 `l `d .4000.0 `ul ]
+"226
+[; ;WS2812b/BitBangWS2812b.c: 226: }
+[e :UE 336 ]
 }

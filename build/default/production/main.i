@@ -4354,9 +4354,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 95 "./mcc_generated_files/pin_manager.h"
+# 112 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 107 "./mcc_generated_files/pin_manager.h"
+# 124 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -4482,14 +4482,64 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 # 54 "./mcc_generated_files/mcc.h" 2
-# 69 "./mcc_generated_files/mcc.h"
+
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 110 "./mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
+# 55 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/adc1.h" 1
+# 72 "./mcc_generated_files/adc1.h"
+typedef uint16_t adc_result_t;
+
+
+
+
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "./mcc_generated_files/adc1.h"
+typedef enum
+{
+    channel_AN10 = 0xA,
+    channel_DAC = 0xE,
+    channel_FVR = 0xF
+} adc_channel_t;
+# 135 "./mcc_generated_files/adc1.h"
+void ADC1_Initialize(void);
+# 165 "./mcc_generated_files/adc1.h"
+void ADC1_SelectChannel(adc_channel_t channel);
+# 192 "./mcc_generated_files/adc1.h"
+void ADC1_StartConversion(void);
+# 224 "./mcc_generated_files/adc1.h"
+_Bool ADC1_IsConversionDone(void);
+# 257 "./mcc_generated_files/adc1.h"
+adc_result_t ADC1_GetConversionResult(void);
+# 287 "./mcc_generated_files/adc1.h"
+adc_result_t ADC1_GetConversion(adc_channel_t channel);
+# 315 "./mcc_generated_files/adc1.h"
+void ADC1_TemperatureAcquisitionDelay(void);
+# 331 "./mcc_generated_files/adc1.h"
+void ADC1_ISR(void);
+# 349 "./mcc_generated_files/adc1.h"
+ void ADC1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 367 "./mcc_generated_files/adc1.h"
+extern void (*ADC1_InterruptHandler)(void);
+# 385 "./mcc_generated_files/adc1.h"
+void ADC1_DefaultInterruptHandler(void);
+# 56 "./mcc_generated_files/mcc.h" 2
+# 71 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 82 "./mcc_generated_files/mcc.h"
+# 84 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
 # 44 "main.c" 2
 
 # 1 "./WS2812b/BitBangWS2812b.h" 1
-# 37 "./WS2812b/BitBangWS2812b.h"
+# 39 "./WS2812b/BitBangWS2812b.h"
+void WS_dim(int A, int B, int C, int brightness);
+# 49 "./WS2812b/BitBangWS2812b.h"
 void WS_Word(int A, int B, int C);
 
 
@@ -4497,6 +4547,12 @@ void WS_Word(int A, int B, int C);
 
 
 void WS_Write(int);
+
+
+
+
+
+void WSTest(int length, int brightness);
 
 
 
@@ -4518,10 +4574,10 @@ void main(void)
 {
 
     SYSTEM_Initialize();
-# 71 "main.c"
+# 69 "main.c"
     while (1)
     {
-        WSLoop();
+        WSTest(100,2);
 
     }
 }

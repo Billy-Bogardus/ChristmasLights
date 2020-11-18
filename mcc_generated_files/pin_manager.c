@@ -71,7 +71,7 @@ void PIN_MANAGER_Initialize(void)
     /**
     ANSELx registers
     */
-    ANSEL = 0xFF;
+    ANSEL = 0xFB;
     ANSELH = 0x0F;
 
     /**
@@ -87,6 +87,8 @@ void PIN_MANAGER_Initialize(void)
 
 
    
+    // Enable RABI interrupt 
+    INTCONbits.RABIE = 1; 
     
 }
   

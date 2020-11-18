@@ -26,6 +26,18 @@
 
 // declare variables
 
+
+
+/**
+ * 
+ * @param A Red
+ * @param B Green
+ * @param C Blue
+ * @Example
+    WS_Word(0xff, 0x00, 0x00);
+ */
+void WS_dim(int A, int B, int C, int brightness);
+
 /**
  * 
  * @param A Red
@@ -41,6 +53,12 @@ void WS_Word(int A, int B, int C);
  * @param A int (basically true or false)
  */
 void WS_Write(int);
+
+
+/**
+ * 
+ */
+void WSTest(int length, int brightness);
 
 /**
  * 

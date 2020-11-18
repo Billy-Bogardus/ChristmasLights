@@ -12,20 +12,31 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\ChristmasLights.production.o
-cinit CODE 0 31A2 31A2 6 1
+cinit CODE 0 692 692 E 1
 idloc IDLOC 5 200000 200000 8 1
-text0 CODE 0 31C0 31C0 10 1
-text1 CODE 0 333A 333A CC6 1
-text2 CODE 0 321E 321E 11C 1
-text3 CODE 0 31D0 31D0 26 1
-text4 CODE 0 31A8 31A8 A 1
-text5 CODE 0 31F6 31F6 28 1
-text6 CODE 0 31B2 31B2 E 1
-cstackCOMRAM COMRAM 1 1 1 17 1
+text0 CODE 0 660 660 20 1
+text1 CODE 0 78 78 360 1
+text2 CODE 0 4F4 4F4 C6 1
+text3 CODE 0 3D8 3D8 11C 1
+text4 CODE 0 616 616 26 1
+text5 CODE 0 680 680 12 1
+text6 CODE 0 5EA 5EA 2C 1
+text7 CODE 0 6A0 6A0 E 1
+text8 CODE 0 6B8 6B8 4 1
+text9 CODE 0 63C 63C 24 1
+nvCOMRAM COMRAM 1 30 30 2 1
+text10 CODE 0 6AE 6AE A 1
+text12 CODE 0 6BC 6BC 4 1
+text13 CODE 0 5BA 5BA 30 1
+text14 CODE 0 6C0 6C0 2 1
+cstackCOMRAM COMRAM 1 1 1 2F 1
+temp COMRAM 1 32 32 1 1
+intcode CODE 0 8 8 6C 1
 config CONFIG 4 300000 300000 E 1
-$C:\Users\billb\AppData\Local\Temp\sckk.o
+$C:\Users\billb\AppData\Local\Temp\s26s.o
 idloc IDLOC 5 200000 200000 8 1
-init CODE 0 0 0 4 1
+init CODE 0 74 74 4 1
+reset_vec CODE 0 0 0 4 1
 config CONFIG 4 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -37,14 +48,16 @@ RAM 60-1FF 1
 SFR F60-FFF 1
 BANK0 60-FF 1
 BANK1 100-1FF 1
-CONST 4-31A1 1
+CONST 4-7 1
+CONST 6C2-3FFF 1
 STACK 60-1FF 1
-SMALLCONST 200-31A1 1
-CODE 4-31A1 1
-BIGRAM 18-1FF 1
-COMRAM 18-5F 1
+SMALLCONST 6C2-3FFF 1
+CODE 4-7 1
+CODE 6C2-3FFF 1
+BIGRAM 33-1FF 1
+COMRAM 33-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 200-31A1 1
+MEDIUMCONST 6C2-3FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -59,192 +72,156 @@ MEDIUMCONST 200-31A1 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\ChristmasLights.production.o
-31B2 text6 CODE >57:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31B2 text6 CODE >60:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31B6 text6 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31BA text6 CODE >64:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31BE text6 CODE >65:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31F6 text5 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-31F6 text5 CODE >60:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-31FA text5 CODE >61:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-31FE text5 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-3202 text5 CODE >67:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-3206 text5 CODE >68:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-320A text5 CODE >69:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-320C text5 CODE >74:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-320E text5 CODE >75:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-3212 text5 CODE >80:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-3216 text5 CODE >81:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-321A text5 CODE >82:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-321C text5 CODE >91:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-31A8 text4 CODE >50:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31A8 text4 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31AC text4 CODE >54:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31B0 text4 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
-31D0 text3 CODE >45:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31D0 text3 CODE >47:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31E2 text3 CODE >49:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31E4 text3 CODE >50:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31E6 text3 CODE >51:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31E8 text3 CODE >52:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31EA text3 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31EC text3 CODE >54:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31F0 text3 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31F0 text3 CODE >57:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31F2 text3 CODE >58:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31F4 text3 CODE >64:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-321E text2 CODE >10:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-321E text2 CODE >18:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-321E text2 CODE >19:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3226 text2 CODE >21:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3242 text2 CODE >23:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-324E text2 CODE >24:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3274 text2 CODE >25:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3278 text2 CODE >26:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3294 text2 CODE >28:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-32A0 text2 CODE >29:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-32C6 text2 CODE >30:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-32CA text2 CODE >31:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-32D8 text2 CODE >33:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-32E0 text2 CODE >34:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3306 text2 CODE >35:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-330A text2 CODE >38:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3312 text2 CODE >40:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-331E text2 CODE >41:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3338 text2 CODE >42:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-333A text1 CODE >68:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-333A text1 CODE >70:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-333C text1 CODE >72:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3356 text1 CODE >73:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3372 text1 CODE >74:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-338E text1 CODE >75:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-33AA text1 CODE >76:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-33C6 text1 CODE >77:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-33E2 text1 CODE >78:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-33FC text1 CODE >79:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3418 text1 CODE >80:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3434 text1 CODE >81:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3450 text1 CODE >82:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-346C text1 CODE >83:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3488 text1 CODE >84:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-34A2 text1 CODE >85:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-34BE text1 CODE >86:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-34DA text1 CODE >87:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-34F6 text1 CODE >88:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3512 text1 CODE >89:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-352E text1 CODE >91:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3546 text1 CODE >92:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-355C text1 CODE >94:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3578 text1 CODE >95:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3592 text1 CODE >96:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-35AE text1 CODE >97:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-35CA text1 CODE >98:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-35E6 text1 CODE >99:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3602 text1 CODE >100:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-361E text1 CODE >101:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3638 text1 CODE >102:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3654 text1 CODE >103:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3670 text1 CODE >104:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-368C text1 CODE >105:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-36A8 text1 CODE >106:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-36C4 text1 CODE >107:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-36DE text1 CODE >108:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-36FA text1 CODE >109:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3716 text1 CODE >110:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3732 text1 CODE >111:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-374E text1 CODE >113:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3766 text1 CODE >114:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-377C text1 CODE >116:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3798 text1 CODE >117:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-37B4 text1 CODE >118:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-37CE text1 CODE >119:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-37EA text1 CODE >120:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3806 text1 CODE >121:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3822 text1 CODE >122:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-383E text1 CODE >123:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-385A text1 CODE >124:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3874 text1 CODE >125:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3890 text1 CODE >126:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-38AC text1 CODE >127:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-38C8 text1 CODE >128:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-38E4 text1 CODE >129:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3900 text1 CODE >130:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-391A text1 CODE >131:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3936 text1 CODE >132:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3952 text1 CODE >133:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-396E text1 CODE >135:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3986 text1 CODE >136:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-399C text1 CODE >138:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-39B8 text1 CODE >139:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-39D4 text1 CODE >140:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-39F0 text1 CODE >141:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A0A text1 CODE >142:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A26 text1 CODE >143:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A42 text1 CODE >144:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A5E text1 CODE >145:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A7A text1 CODE >146:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3A96 text1 CODE >147:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3AB0 text1 CODE >148:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3ACC text1 CODE >149:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3AE8 text1 CODE >150:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B04 text1 CODE >151:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B20 text1 CODE >152:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B3C text1 CODE >153:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B56 text1 CODE >154:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B72 text1 CODE >155:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3B8E text1 CODE >157:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3BA6 text1 CODE >158:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3BBC text1 CODE >160:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3BD8 text1 CODE >161:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3BF4 text1 CODE >162:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C10 text1 CODE >163:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C2C text1 CODE >164:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C46 text1 CODE >165:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C62 text1 CODE >166:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C7E text1 CODE >167:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3C9A text1 CODE >168:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3CB6 text1 CODE >169:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3CD2 text1 CODE >170:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3CEC text1 CODE >171:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D08 text1 CODE >172:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D24 text1 CODE >173:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D40 text1 CODE >174:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D5C text1 CODE >175:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D78 text1 CODE >176:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3D92 text1 CODE >177:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3DAE text1 CODE >179:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3DC6 text1 CODE >180:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3DDC text1 CODE >182:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3DF8 text1 CODE >183:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E14 text1 CODE >184:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E30 text1 CODE >185:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E4C text1 CODE >186:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E68 text1 CODE >187:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E82 text1 CODE >188:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3E9E text1 CODE >189:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3EBA text1 CODE >190:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3ED6 text1 CODE >191:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3EF2 text1 CODE >192:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F0E text1 CODE >193:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F28 text1 CODE >194:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F44 text1 CODE >195:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F60 text1 CODE >196:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F7C text1 CODE >197:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3F98 text1 CODE >198:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3FB4 text1 CODE >199:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3FCE text1 CODE >201:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3FE6 text1 CODE >202:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3FFC text1 CODE >205:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-3FFE text1 CODE >207:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
-31C0 text0 CODE >50:D:\UserData\Documents\KiCad\ChristmasLights\main.c
-31C0 text0 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\main.c
-31C4 text0 CODE >73:D:\UserData\Documents\KiCad\ChristmasLights\main.c
-31A2 cinit CODE >1324:C:\Users\billb\AppData\Local\Temp\sckk.s
-31A2 cinit CODE >1326:C:\Users\billb\AppData\Local\Temp\sckk.s
-31A2 cinit CODE >1329:C:\Users\billb\AppData\Local\Temp\sckk.s
-31A2 cinit CODE >1335:C:\Users\billb\AppData\Local\Temp\sckk.s
-31A2 cinit CODE >1337:C:\Users\billb\AppData\Local\Temp\sckk.s
-31A4 cinit CODE >1338:C:\Users\billb\AppData\Local\Temp\sckk.s
+8 intcode CODE >3848:C:\Users\billb\AppData\Local\Temp\s26s.s
+8 intcode CODE >58:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+12 intcode CODE >61:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+2E intcode CODE >63:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+32 intcode CODE >64:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+36 intcode CODE >65:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+44 intcode CODE >67:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+60 intcode CODE >69:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+64 intcode CODE >70:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+68 intcode CODE >79:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+68 intcode CODE >80:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+6C0 text14 CODE >155:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+6C0 text14 CODE >158:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+5BA text13 CODE >140:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+5BA text13 CODE >143:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+5BC text13 CODE >145:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+5CE text13 CODE >147:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+5E8 text13 CODE >149:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+6BC text12 CODE >95:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+6BC text12 CODE >98:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+6BE text12 CODE >99:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+6AE text10 CODE >151:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+6AE text10 CODE >152:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+6B6 text10 CODE >153:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+63C text9 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+63C text9 CODE >67:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+640 text9 CODE >70:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+644 text9 CODE >73:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+648 text9 CODE >76:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+64C text9 CODE >79:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+650 text9 CODE >82:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+652 text9 CODE >85:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+65E text9 CODE >86:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
+6B8 text8 CODE >52:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+6B8 text8 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+6BA text8 CODE >56:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
+6A0 text7 CODE >59:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+6A0 text7 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+6A4 text7 CODE >64:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+6A8 text7 CODE >66:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+6AC text7 CODE >67:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+5EA text6 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5EA text6 CODE >60:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5EE text6 CODE >61:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5F2 text6 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5F6 text6 CODE >67:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5FA text6 CODE >68:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+5FE text6 CODE >69:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+600 text6 CODE >74:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+604 text6 CODE >75:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+608 text6 CODE >80:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+60C text6 CODE >81:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+610 text6 CODE >82:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+612 text6 CODE >91:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+614 text6 CODE >93:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
+680 text5 CODE >50:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+680 text5 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+684 text5 CODE >54:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+688 text5 CODE >55:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+68C text5 CODE >56:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+690 text5 CODE >57:D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
+616 text4 CODE >56:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+616 text4 CODE >58:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+628 text4 CODE >60:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+62A text4 CODE >61:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+62C text4 CODE >62:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+62E text4 CODE >63:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+630 text4 CODE >64:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+632 text4 CODE >65:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+636 text4 CODE >66:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+636 text4 CODE >68:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+638 text4 CODE >69:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+63A text4 CODE >75:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3D8 text3 CODE >21:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3D8 text3 CODE >29:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3D8 text3 CODE >30:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3E0 text3 CODE >32:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3FC text3 CODE >34:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+408 text3 CODE >35:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+42E text3 CODE >36:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+432 text3 CODE >37:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+44E text3 CODE >39:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+45A text3 CODE >40:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+480 text3 CODE >41:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+484 text3 CODE >42:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+492 text3 CODE >44:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+49A text3 CODE >45:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4C0 text3 CODE >46:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4C4 text3 CODE >49:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4CC text3 CODE >51:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4D8 text3 CODE >52:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4F2 text3 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4F4 text2 CODE >10:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+4F4 text2 CODE >12:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+52A text2 CODE >14:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+550 text2 CODE >15:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+576 text2 CODE >16:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+59C text2 CODE >18:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+5B8 text2 CODE >19:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+78 text1 CODE >77:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+78 text1 CODE >80:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+84 text1 CODE >82:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+A0 text1 CODE >83:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+C2 text1 CODE >84:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+DA text1 CODE >85:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+F0 text1 CODE >86:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+F0 text1 CODE >87:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+FC text1 CODE >89:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+11E text1 CODE >90:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+13E text1 CODE >91:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+160 text1 CODE >92:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+180 text1 CODE >93:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+1A2 text1 CODE >94:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+1C2 text1 CODE >95:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+204 text1 CODE >98:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+226 text1 CODE >99:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+22A text1 CODE >100:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+246 text1 CODE >101:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+266 text1 CODE >102:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+26A text1 CODE >103:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+286 text1 CODE >104:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+2A8 text1 CODE >105:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+2AC text1 CODE >106:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+2C8 text1 CODE >107:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+2E8 text1 CODE >108:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+2EC text1 CODE >109:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+308 text1 CODE >110:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+32A text1 CODE >111:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+32E text1 CODE >112:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+34A text1 CODE >113:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+36A text1 CODE >114:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+36E text1 CODE >115:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+38A text1 CODE >96:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3A8 text1 CODE >118:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3C0 text1 CODE >119:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+3D6 text1 CODE >120:D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+660 text0 CODE >50:D:\UserData\Documents\KiCad\ChristmasLights\main.c
+660 text0 CODE >53:D:\UserData\Documents\KiCad\ChristmasLights\main.c
+664 text0 CODE >69:D:\UserData\Documents\KiCad\ChristmasLights\main.c
+664 text0 CODE >71:D:\UserData\Documents\KiCad\ChristmasLights\main.c
+692 cinit CODE >1928:C:\Users\billb\AppData\Local\Temp\s26s.s
+692 cinit CODE >1930:C:\Users\billb\AppData\Local\Temp\s26s.s
+692 cinit CODE >1933:C:\Users\billb\AppData\Local\Temp\s26s.s
+692 cinit CODE >1939:C:\Users\billb\AppData\Local\Temp\s26s.s
+692 cinit CODE >1941:C:\Users\billb\AppData\Local\Temp\s26s.s
+694 cinit CODE >1942:C:\Users\billb\AppData\Local\Temp\s26s.s
+696 cinit CODE >1944:C:\Users\billb\AppData\Local\Temp\s26s.s
+698 cinit CODE >1945:C:\Users\billb\AppData\Local\Temp\s26s.s
+69A cinit CODE >1946:C:\Users\billb\AppData\Local\Temp\s26s.s
+69C cinit CODE >1947:C:\Users\billb\AppData\Local\Temp\s26s.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -258,56 +235,86 @@ $dist/default/production\ChristmasLights.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\ChristmasLights.production.o
-__Hspace_0 4000 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__Hspace_1 18 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__Hspace_0 6C2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__Hspace_1 33 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__size_of_ADC1_DefaultInterruptHandler 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\ChristmasLights.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\billb\AppData\Local\Temp\sckk.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\billb\AppData\Local\Temp\s26s.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ChristmasLights.production.o
+__end_of_INTERRUPT_Initialize 6BC 0 CODE 0 text8 dist/default/production\ChristmasLights.production.o
+__end_of_PIN_MANAGER_IOC 6C0 0 CODE 0 text12 dist/default/production\ChristmasLights.production.o
+__end_of_ADC1_DefaultInterruptHandler 6C2 0 CODE 0 text14 dist/default/production\ChristmasLights.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ChristmasLights.production.o
 _LATA F89 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _LATB F8A 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _LATC F8B 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _WPUA F77 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _WPUB F78 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-___sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\sckk.o
-_main 31C0 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
-start 0 0 CODE 0 init C:\Users\billb\AppData\Local\Temp\sckk.o
+___sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\s26s.o
+_main 660 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
+btemp 32 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+start 74 0 CODE 0 init C:\Users\billb\AppData\Local\Temp\s26s.o
 __size_of_main 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-_WS_Word 321E 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
-__Hpowerup 0 0 CODE 0 powerup dist/default/production\ChristmasLights.production.o
+_ADC1_Initialize 63C 0 CODE 0 text9 dist/default/production\ChristmasLights.production.o
+WS_dim@brightness 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__size_of_ADC1_SetInterruptHandler 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_WS_Word 3D8 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
+__Hpowerup 74 0 CODE 0 powerup dist/default/production\ChristmasLights.production.o
+__size_of_ADC1_ISR 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+ttemp5 33 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+ttemp6 36 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+ttemp7 3A 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\ChristmasLights.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__accesstop 60 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\sckk.o
-intlevel0 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\sckk.o
-intlevel1 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\sckk.o
-intlevel2 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\sckk.o
-intlevel3 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\sckk.o
-__end_of_WSLoop 4000 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
+__accesstop 60 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\s26s.o
+intlevel0 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\s26s.o
+intlevel1 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\s26s.o
+intlevel2 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\s26s.o
+intlevel3 0 0 CODE 0 text C:\Users\billb\AppData\Local\Temp\s26s.o
+__end_of_WSTest 3D8 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
+__end_of_WS_dim 5BA 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\ChristmasLights.production.o
+wtemp8 33 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+_PIN_MANAGER_IOC 6BC 0 CODE 0 text12 dist/default/production\ChristmasLights.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\ChristmasLights.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\ChristmasLights.production.o
 __size_of_WS_Write 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_ADCON0 FC2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_ADCON1 FC1 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_ADCON2 FC0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_ADRESH FC4 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_ADRESL FC3 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _ANSELH F7F 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\sckk.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\sckk.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\s26s.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\billb\AppData\Local\Temp\s26s.o
+__end_of_INTERRUPT_InterruptManager 74 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\ChristmasLights.production.o
-WS_Word@Bx 12 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@Bx 14 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\ChristmasLights.production.o
+_ADC1_ISR 5BA 0 CODE 0 text13 dist/default/production\ChristmasLights.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\ChristmasLights.production.o
-__Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\ChristmasLights.production.o
-WS_Write@A 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__Hintcodelo 74 0 CODE 0 intcodelo dist/default/production\ChristmasLights.production.o
+WS_Write@A 3 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__size_of_ADC1_Initialize 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__end_of_ADC1_ISR 5EA 0 CODE 0 text13 dist/default/production\ChristmasLights.production.o
+WSTest@length 23 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__end_of_ADC1_SetInterruptHandler 6B8 0 CODE 0 text10 dist/default/production\ChristmasLights.production.o
+__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\ChristmasLights.production.o
 _INTCON2bits FF1 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\ChristmasLights.production.o
-_PIN_MANAGER_Initialize 31F6 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
-_WS_Write 31D0 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
-start_initialization 31A2 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+__Lintcodelo 74 0 CODE 0 intcodelo dist/default/production\ChristmasLights.production.o
+_PIN_MANAGER_Initialize 5EA 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
+_WS_Write 616 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
+start_initialization 692 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
 _OSCCON FD3 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\ChristmasLights.production.o
-__end_of_WS_Write 31F6 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
+__end_of_WS_Write 63C 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__end_of_SYSTEM_Initialize 31B2 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
-_WSLoop 333A 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
+__size_of_PIN_MANAGER_IOC 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__end_of_SYSTEM_Initialize 692 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
+_WSTest 78 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
+_WS_dim 4F4 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\ChristmasLights.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\ChristmasLights.production.o
 __Hcinit 0 0 ABS 0 cinit dist/default/production\ChristmasLights.production.o
@@ -326,11 +333,15 @@ __Htext3 0 0 ABS 0 text3 dist/default/production\ChristmasLights.production.o
 __Htext4 0 0 ABS 0 text4 dist/default/production\ChristmasLights.production.o
 __Htext5 0 0 ABS 0 text5 dist/default/production\ChristmasLights.production.o
 __Htext6 0 0 ABS 0 text6 dist/default/production\ChristmasLights.production.o
+__Htext7 0 0 ABS 0 text7 dist/default/production\ChristmasLights.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\ChristmasLights.production.o
+__Htext9 0 0 ABS 0 text9 dist/default/production\ChristmasLights.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\ChristmasLights.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\ChristmasLights.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\billb\AppData\Local\Temp\sckk.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\billb\AppData\Local\Temp\s26s.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\ChristmasLights.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\ChristmasLights.production.o
+_ADC1_InterruptHandler 30 0 COMRAM 1 nvCOMRAM dist/default/production\ChristmasLights.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\ChristmasLights.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\ChristmasLights.production.o
 __Lcinit 0 0 ABS 0 cinit dist/default/production\ChristmasLights.production.o
@@ -348,94 +359,136 @@ __Ltext3 0 0 ABS 0 text3 dist/default/production\ChristmasLights.production.o
 __Ltext4 0 0 ABS 0 text4 dist/default/production\ChristmasLights.production.o
 __Ltext5 0 0 ABS 0 text5 dist/default/production\ChristmasLights.production.o
 __Ltext6 0 0 ABS 0 text6 dist/default/production\ChristmasLights.production.o
+__Ltext7 0 0 ABS 0 text7 dist/default/production\ChristmasLights.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\ChristmasLights.production.o
+__Ltext9 0 0 ABS 0 text9 dist/default/production\ChristmasLights.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\ChristmasLights.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\ChristmasLights.production.o
 _INTCONbits FF2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_INTERRUPT_Initialize 6B8 0 CODE 0 text8 dist/default/production\ChristmasLights.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\ChristmasLights.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\ChristmasLights.production.o
-__Hinit 4 0 CODE 0 init dist/default/production\ChristmasLights.production.o
+__Hinit 78 0 CODE 0 init dist/default/production\ChristmasLights.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\ChristmasLights.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\ChristmasLights.production.o
-__Htemp 0 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+__Htemp 33 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
 __Htext 0 0 ABS 0 text dist/default/production\ChristmasLights.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\ChristmasLights.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\ChristmasLights.production.o
-__Linit 0 0 CODE 0 init dist/default/production\ChristmasLights.production.o
+__Linit 74 0 CODE 0 init dist/default/production\ChristmasLights.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\ChristmasLights.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\ChristmasLights.production.o
-__Ltemp 0 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
+__Ltemp 32 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\ChristmasLights.production.o
+int$flags 32 0 COMRAM 1 temp dist/default/production\ChristmasLights.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\ChristmasLights.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\ChristmasLights.production.o
 _GIE 7F97 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__S0 4000 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__S1 18 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__S0 6C2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__S1 33 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __S2 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __S4 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __S5 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__size_of_WSLoop 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-WS_Word@A 3 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-WS_Word@B 5 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-WS_Word@C 7 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-WS_Word@i 14 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-WS_Word@x C 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__size_of_WSTest 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__size_of_WS_dim 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__pnvCOMRAM 30 0 COMRAM 1 nvCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@A 5 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@B 7 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@C 9 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@i 16 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@x E 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WSTest@b 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WSTest@i 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\ChristmasLights.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\ChristmasLights.production.o
-_SYSTEM_Initialize 31A8 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
+WS_Word@x_241 10 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_Word@x_242 12 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+_SYSTEM_Initialize 680 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
 __size_of_WS_Word 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\ChristmasLights.production.o
 __Hramtop 200 0 RAM 0 ramtop dist/default/production\ChristmasLights.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\ChristmasLights.production.o
-__activetblptr 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__activetblptr 2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\ChristmasLights.production.o
-__end_of_PIN_MANAGER_Initialize 321E 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
+__Htext10 0 0 ABS 0 text10 dist/default/production\ChristmasLights.production.o
+__Htext12 0 0 ABS 0 text12 dist/default/production\ChristmasLights.production.o
+__Htext13 0 0 ABS 0 text13 dist/default/production\ChristmasLights.production.o
+__Htext14 0 0 ABS 0 text14 dist/default/production\ChristmasLights.production.o
+__Htext15 0 0 ABS 0 text15 dist/default/production\ChristmasLights.production.o
+_INTERRUPT_InterruptManager 8 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
+_PIE1bits F9D 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__ptext10 6AE 0 CODE 0 text10 dist/default/production\ChristmasLights.production.o
+__ptext12 6BC 0 CODE 0 text12 dist/default/production\ChristmasLights.production.o
+__ptext13 5BA 0 CODE 0 text13 dist/default/production\ChristmasLights.production.o
+__ptext14 6C0 0 CODE 0 text14 dist/default/production\ChristmasLights.production.o
+__ptext15 0 0 CODE 0 text15 dist/default/production\ChristmasLights.production.o
+__end_of_PIN_MANAGER_Initialize 616 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\ChristmasLights.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\ChristmasLights.production.o
+WS_dim@A 18 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_dim@B 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+WS_dim@C 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\ChristmasLights.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\ChristmasLights.production.o
 _LATAbits F89 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\ChristmasLights.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\ChristmasLights.production.o
-stackhi 1FF 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\sckk.o
-stacklo 60 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\sckk.o
-__Lintcode 0 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
+stackhi 1FF 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\s26s.o
+stacklo 60 0 ABS 0 - C:\Users\billb\AppData\Local\Temp\s26s.o
+__Lintcode 8 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
 _OSCCON2 FD2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _OSCTUNE F9B 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\ChristmasLights.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\ChristmasLights.production.o
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_PIR1bits F9E 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-end_of_initialization 31A2 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+end_of_initialization 692 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+_ADC1_DefaultInterruptHandler 6C0 0 CODE 0 text14 dist/default/production\ChristmasLights.production.o
+WSTest@brightness 25 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\ChristmasLights.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\ChristmasLights.production.o
-__end_of_WS_Word 333A 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
-__Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\ChristmasLights.production.o
+__end_of_WS_Word 4F4 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
+_RCONbits FD0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\ChristmasLights.production.o
 __Lramtop 200 0 RAM 0 ramtop dist/default/production\ChristmasLights.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\ChristmasLights.production.o
-__pcinit 31A2 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
-__ptext0 31C0 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
-__ptext1 333A 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
-__ptext2 321E 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
-__ptext3 31D0 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
-__ptext4 31A8 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
-__ptext5 31F6 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
-__ptext6 31B2 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
+__pcinit 692 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+__ptext0 660 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
+__ptext1 78 0 CODE 0 text1 dist/default/production\ChristmasLights.production.o
+__ptext2 4F4 0 CODE 0 text2 dist/default/production\ChristmasLights.production.o
+__ptext3 3D8 0 CODE 0 text3 dist/default/production\ChristmasLights.production.o
+__ptext4 616 0 CODE 0 text4 dist/default/production\ChristmasLights.production.o
+__ptext5 680 0 CODE 0 text5 dist/default/production\ChristmasLights.production.o
+__ptext6 5EA 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
+__ptext7 6A0 0 CODE 0 text7 dist/default/production\ChristmasLights.production.o
+__ptext8 6B8 0 CODE 0 text8 dist/default/production\ChristmasLights.production.o
+__ptext9 63C 0 CODE 0 text9 dist/default/production\ChristmasLights.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\ChristmasLights.production.o
-__ramtop 200 0 RAM 0 ramtop C:\Users\billb\AppData\Local\Temp\sckk.o
-__Lpowerup 0 0 CODE 0 powerup dist/default/production\ChristmasLights.production.o
+__Ltext10 0 0 ABS 0 text10 dist/default/production\ChristmasLights.production.o
+__Ltext12 0 0 ABS 0 text12 dist/default/production\ChristmasLights.production.o
+__Ltext13 0 0 ABS 0 text13 dist/default/production\ChristmasLights.production.o
+__Ltext14 0 0 ABS 0 text14 dist/default/production\ChristmasLights.production.o
+__Ltext15 0 0 ABS 0 text15 dist/default/production\ChristmasLights.production.o
+__ramtop 200 0 RAM 0 ramtop C:\Users\billb\AppData\Local\Temp\s26s.o
+__Lpowerup 74 0 CODE 0 powerup dist/default/production\ChristmasLights.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ChristmasLights.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\ChristmasLights.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\ChristmasLights.production.o
-__end_of__initialization 31A2 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+__end_of__initialization 692 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\ChristmasLights.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\ChristmasLights.production.o
+_ADC1_SetInterruptHandler 6AE 0 CODE 0 text10 dist/default/production\ChristmasLights.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-__end_of_main 31D0 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
+__end_of_main 680 0 CODE 0 text0 dist/default/production\ChristmasLights.production.o
+__pintcode 8 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
 _ANSEL F7E 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _TRISA F92 0 ABS 0 - dist/default/production\ChristmasLights.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\ChristmasLights.production.o
@@ -449,16 +502,17 @@ __Lbss 0 0 RAM 1 bss dist/default/production\ChristmasLights.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\ChristmasLights.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\ChristmasLights.production.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
-__end_of_OSCILLATOR_Initialize 31C0 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
-__initialization 31A2 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
-WS_Word@x_79 E 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
-WS_Word@x_80 10 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+ADC1_SetInterruptHandler@InterruptHandler 3 0 COMRAM 1 cstackCOMRAM dist/default/production\ChristmasLights.production.o
+__end_of_OSCILLATOR_Initialize 6AE 0 CODE 0 text7 dist/default/production\ChristmasLights.production.o
+__initialization 692 0 CODE 0 cinit dist/default/production\ChristmasLights.production.o
+__end_of_ADC1_Initialize 660 0 CODE 0 text9 dist/default/production\ChristmasLights.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\ChristmasLights.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ChristmasLights.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\ChristmasLights.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\ChristmasLights.production.o
-__Hintcode 0 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
-_OSCILLATOR_Initialize 31B2 0 CODE 0 text6 dist/default/production\ChristmasLights.production.o
+__Hintcode 74 0 CODE 0 intcode dist/default/production\ChristmasLights.production.o
+__size_of_INTERRUPT_Initialize 0 0 ABS 0 - dist/default/production\ChristmasLights.production.o
+_OSCILLATOR_Initialize 6A0 0 CODE 0 text7 dist/default/production\ChristmasLights.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -483,16 +537,9 @@ _OSCILLATOR_Initialize 31B2 0 CODE 0 text6 dist/default/production\ChristmasLigh
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 31A2 31A2 6 1
-text0 0 31C0 31C0 10 1
-text1 0 333A 333A CC6 1
-text2 0 321E 321E 11C 1
-text3 0 31D0 31D0 26 1
-text4 0 31A8 31A8 A 1
-text5 0 31F6 31F6 28 1
-text6 0 31B2 31B2 E 1
-cstackCOMRAM 1 1 1 17 1
+cstackCOMRAM 1 1 1 32 1
 reset_vec 0 0 0 4 1
+intcode 0 8 8 6BA 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
