@@ -9,11 +9,18 @@
 
 void WS_dim(int A, int B, int C, int brightness)
 {
-    if( brightness > 0 && brightness <=8)//decrease brightness from 0 - 100%
+    int f = 255 - 5*brightness;
+    if( A >=f )
     {
-        A = A >> brightness;
-        B = B >> brightness;
-        C = C >> brightness;
+        A = A - f;
+    }
+    if( B >=f )
+    {
+        B = B - f;
+    }
+    if( C >=f )
+    {
+        C = C - f;
     }
     WS_Word(A, B, C);
 }
@@ -73,16 +80,21 @@ void WS_Write( int A )
     }
     
 }
-
-void WSTest(int length, int brightness)
+void WSSlow(int lengh, int maxBrightness, int minBrightness)
 {
-    
-    for(int i = 0; i<length; i++)
+    for(int i = minBrightness; i<=maxBrightness; i++)
     {
-        WS_Word(0x00, 0x00, 0x00); //off
+        WS_RYGCBM(lengh, i);
+        __delay_ms(10);
     }
-    __delay_ms(WSReset);
-    __delay_ms(250);
+    for(int i = maxBrightness; i>=minBrightness; i--)
+    {
+        WS_RYGCBM(lengh, i);
+        __delay_ms(10);
+    }
+}
+void WS_RYGCBM(int length, int brightness)
+{
     int b =0;
     for(b = 0; b<length-6; b+=6 )
     {
@@ -114,8 +126,19 @@ void WSTest(int length, int brightness)
         b++;
         if(b == length) break;
     }
-    
     __delay_ms(WSReset);
+}
+
+void WSTest(int length, int brightness)
+{
+    
+    for(int i = 0; i<length; i++)
+    {
+        WS_Word(0x00, 0x00, 0x00); //off
+    }
+    __delay_ms(WSReset);
+    __delay_ms(250);
+    WS_RYGCBM(length, brightness);
     __delay_ms(250);
 }
 //WSLoop function for bitbanging WS2812B controlls
@@ -210,17 +233,16 @@ void WSLoop(void)
     
 }
 
-void WS_White(void)
+void WS_White(int length, int brightness)
 {
     GIE = 0;
     
-    WS_Word(0xff, 0xff, 0xff); //white
-    WS_Word(0xff, 0xff, 0xff); //white
-    WS_Word(0xff, 0xff, 0xff); //white
-    
-    WS_Word(0xff, 0xff, 0xff); //white
-    WS_Word(0xff, 0xff, 0xff); //white
-    WS_Word(0xff, 0xff, 0xff); //white
+    for(int i = 0; i<length; i++)
+    {
+        //warm 0xff, 0x82, 0x82,
+        //cool 0x82, 0xff, 0xff,
+        WS_dim(0xff, 0xff, 0xff, brightness); //white
+    }
     
     __delay_ms(WSReset);
 }

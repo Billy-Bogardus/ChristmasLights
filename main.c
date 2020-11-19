@@ -66,10 +66,12 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+    
+    //WS_White(100, 2);
     while (1)
     {
-        WSTest(100,2);
-        // Add your application code
+        WSSlow(100, 32, 3);
+        //WSTest(100,2);
     }
 }
 /**

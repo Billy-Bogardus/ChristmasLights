@@ -4537,9 +4537,9 @@ void OSCILLATOR_Initialize(void);
 # 44 "main.c" 2
 
 # 1 "./WS2812b/BitBangWS2812b.h" 1
-# 39 "./WS2812b/BitBangWS2812b.h"
+# 48 "./WS2812b/BitBangWS2812b.h"
 void WS_dim(int A, int B, int C, int brightness);
-# 49 "./WS2812b/BitBangWS2812b.h"
+# 58 "./WS2812b/BitBangWS2812b.h"
 void WS_Word(int A, int B, int C);
 
 
@@ -4549,6 +4549,9 @@ void WS_Word(int A, int B, int C);
 void WS_Write(int);
 
 
+void WSSlow(int lengh, int maxBrightness, int minBrightness);
+
+void WS_RYGCBM(int length, int brightness);
 
 
 
@@ -4563,7 +4566,7 @@ void WSLoop(void);
 
 
 
-void WS_White(void);
+void WS_White(int length, int brightness);
 # 45 "main.c" 2
 
 
@@ -4574,10 +4577,10 @@ void main(void)
 {
 
     SYSTEM_Initialize();
-# 69 "main.c"
+# 71 "main.c"
     while (1)
     {
-        WSTest(100,2);
+        WSSlow(100, 32, 3);
 
     }
 }

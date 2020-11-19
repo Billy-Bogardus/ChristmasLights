@@ -3,9 +3,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "71 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"61 ./WS2812b/BitBangWS2812b.h
-[; ;./WS2812b/BitBangWS2812b.h: 61: void WSTest(int length, int brightness);
-[v _WSTest `(v ~T0 @X0 0 ef2`i`i ]
+"67 ./WS2812b/BitBangWS2812b.h
+[; ;./WS2812b/BitBangWS2812b.h: 67: void WSSlow(int lengh, int maxBrightness, int minBrightness);
+[v _WSSlow `(v ~T0 @X0 0 ef3`i`i`i ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 54: __asm("SRCON0 equ 0F68h");
 [; <" SRCON0 equ 0F68h ;# ">
@@ -444,22 +444,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;main.c: 53:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"69
-[; ;main.c: 69:     while (1)
-[e :U 287 ]
-"70
-[; ;main.c: 70:     {
-{
 "71
-[; ;main.c: 71:         WSTest(100,2);
-[e ( _WSTest (2 , -> 100 `i -> 2 `i ]
+[; ;main.c: 71:     while (1)
+[e :U 287 ]
+"72
+[; ;main.c: 72:     {
+{
 "73
-[; ;main.c: 73:     }
+[; ;main.c: 73:         WSSlow(100, 32, 3);
+[e ( _WSSlow (3 , , -> 100 `i -> 32 `i -> 3 `i ]
+"75
+[; ;main.c: 75:     }
 }
 [e :U 286 ]
 [e $U 287  ]
 [e :U 288 ]
-"74
-[; ;main.c: 74: }
+"76
+[; ;main.c: 76: }
 [e :UE 285 ]
 }
