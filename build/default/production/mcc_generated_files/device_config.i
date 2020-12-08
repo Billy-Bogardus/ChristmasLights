@@ -24,12 +24,12 @@
 #pragma config WDTPS = 32768
 
 
-#pragma config HFOFST = ON
+#pragma config HFOFST = OFF
 #pragma config MCLRE = ON
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 #pragma config BBSIZ = OFF
 #pragma config XINST = OFF
 #pragma config DEBUG = OFF

@@ -66,7 +66,7 @@ void PIN_MANAGER_Initialize(void)
     */
     TRISA = 0x33;
     TRISB = 0xF0;
-    TRISC = 0xFF;
+    TRISC = 0xFC;
 
     /**
     ANSELx registers
@@ -77,9 +77,9 @@ void PIN_MANAGER_Initialize(void)
     /**
     WPUx registers
     */
-    WPUB = 0x00;
-    WPUA = 0x00;
-    INTCON2bits.nRBPU = 1;
+    WPUB = 0x80;
+    WPUA = 0x3A;
+    INTCON2bits.nRBPU = 0;
 
 
 
@@ -87,8 +87,6 @@ void PIN_MANAGER_Initialize(void)
 
 
    
-    // Enable RABI interrupt 
-    INTCONbits.RABIE = 1; 
     
 }
   

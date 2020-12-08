@@ -66,8 +66,8 @@ void ADC1_Initialize(void)
     // NVCFG VSS; PVCFG VDD; 
     ADCON1 = 0x00;
     
-    // ADFM Right; ACQT 0; ADCS FOSC/2; 
-    ADCON2 = 0xB8;
+    // ADFM right; ACQT 20; ADCS FOSC/64; 
+    ADCON2 = 0xBE;
     
     // ADRESL 0; 
     ADRESL = 0x00;
@@ -75,8 +75,8 @@ void ADC1_Initialize(void)
     // ADRESH 0; 
     ADRESH = 0x00;
     
-    // GO_nDONE stop; ADON enabled; CHS AN0; 
-    ADCON0 = 0x01;
+    // GO_nDONE stop; ADON enabled; CHS AN10; 
+    ADCON0 = 0x29;
     
     // Enabling ADC1 interrupt.
     PIE1bits.ADIE = 1;

@@ -529,8 +529,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/pin_manager.c: 68:     TRISB = 0xF0;
 [e = _TRISB -> -> 240 `i `uc ]
 "69
-[; ;mcc_generated_files/pin_manager.c: 69:     TRISC = 0xFF;
-[e = _TRISC -> -> 255 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 69:     TRISC = 0xFC;
+[e = _TRISC -> -> 252 `i `uc ]
 "74
 [; ;mcc_generated_files/pin_manager.c: 74:     ANSEL = 0xFB;
 [e = _ANSEL -> -> 251 `i `uc ]
@@ -538,33 +538,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/pin_manager.c: 75:     ANSELH = 0x0F;
 [e = _ANSELH -> -> 15 `i `uc ]
 "80
-[; ;mcc_generated_files/pin_manager.c: 80:     WPUB = 0x00;
-[e = _WPUB -> -> 0 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 80:     WPUB = 0x80;
+[e = _WPUB -> -> 128 `i `uc ]
 "81
-[; ;mcc_generated_files/pin_manager.c: 81:     WPUA = 0x00;
-[e = _WPUA -> -> 0 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 81:     WPUA = 0x3A;
+[e = _WPUA -> -> 58 `i `uc ]
 "82
-[; ;mcc_generated_files/pin_manager.c: 82:     INTCON2bits.nRBPU = 1;
-[e = . . _INTCON2bits 4 1 -> -> 1 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 82:     INTCON2bits.nRBPU = 0;
+[e = . . _INTCON2bits 4 1 -> -> 0 `i `uc ]
 "91
-[; ;mcc_generated_files/pin_manager.c: 91:     INTCONbits.RABIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"93
-[; ;mcc_generated_files/pin_manager.c: 93: }
+[; ;mcc_generated_files/pin_manager.c: 91: }
 [e :UE 284 ]
 }
-"95
-[; ;mcc_generated_files/pin_manager.c: 95: void PIN_MANAGER_IOC(void)
+"93
+[; ;mcc_generated_files/pin_manager.c: 93: void PIN_MANAGER_IOC(void)
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"96
-[; ;mcc_generated_files/pin_manager.c: 96: {
+"94
+[; ;mcc_generated_files/pin_manager.c: 94: {
 {
 [e :U _PIN_MANAGER_IOC ]
 [f ]
-"98
-[; ;mcc_generated_files/pin_manager.c: 98:     INTCONbits.RABIF = 0;
+"96
+[; ;mcc_generated_files/pin_manager.c: 96:     INTCONbits.RABIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"99
-[; ;mcc_generated_files/pin_manager.c: 99: }
+"97
+[; ;mcc_generated_files/pin_manager.c: 97: }
 [e :UE 285 ]
 }

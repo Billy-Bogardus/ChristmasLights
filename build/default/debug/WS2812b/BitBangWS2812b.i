@@ -4443,9 +4443,11 @@ typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
 # 15 "WS2812b/BitBangWS2812b.h" 2
-# 39 "WS2812b/BitBangWS2812b.h"
+# 37 "WS2812b/BitBangWS2812b.h"
+static const int ColorSetB[7][3];
+# 48 "WS2812b/BitBangWS2812b.h"
 void WS_dim(int A, int B, int C, int brightness);
-# 49 "WS2812b/BitBangWS2812b.h"
+# 58 "WS2812b/BitBangWS2812b.h"
 void WS_Word(int A, int B, int C);
 
 
@@ -4455,10 +4457,18 @@ void WS_Word(int A, int B, int C);
 void WS_Write(int);
 
 
+void WSSlow(int lengh, int maxBrightness, int minBrightness);
+
+void WS_RYGCBM(int length, int brightness);
 
 
 
-void WSTest(void);
+void WSTest(int length, int brightness);
+
+
+
+
+void WSWalk(int length, int brightness);
 
 
 
@@ -4469,18 +4479,36 @@ void WSLoop(void);
 
 
 
-void WS_White(void);
+void WS_White(int length, int brightness);
 # 8 "WS2812b/BitBangWS2812b.c" 2
+
+
+
+static const int ColorSetB[7][3] ={
+    {0xFF, 0x00, 0x00},
+    {0xFF, 0xFF, 0x00},
+    {0x00, 0xFF, 0x00},
+    {0x00, 0xFF, 0xFF},
+    {0x00, 0x00, 0xFF},
+    {0xFF, 0x00, 0xFF},
+    {0x00, 0x00, 0x00}
+};
 
 
 void WS_dim(int A, int B, int C, int brightness)
 {
-    float factor = (float) 100/brightness;
-    if( factor > 0)
+    int f = 255 - 5*brightness;
+    if( A >=f )
     {
-        A = A / factor;
-        B = B / factor;
-        C = C / factor;
+        A = A - f;
+    }
+    if( B >=f )
+    {
+        B = B - f;
+    }
+    if( C >=f )
+    {
+        C = C - f;
     }
     WS_Word(A, B, C);
 }
@@ -4540,32 +4568,97 @@ void WS_Write( int A )
     }
 
 }
+void WSSlow(int lengh, int maxBrightness, int minBrightness)
+{
+    for(int i = minBrightness; i<=maxBrightness; i++)
+    {
+        WS_RYGCBM(lengh, i);
+        _delay((unsigned long)((10)*(32000000/4000.0)));
+    }
+    for(int i = maxBrightness; i>=minBrightness; i--)
+    {
+        WS_RYGCBM(lengh, i);
+        _delay((unsigned long)((10)*(32000000/4000.0)));
+    }
+}
+void WS_RYGCBM(int length, int brightness)
+{
+    int b =0;
+    for(b = 0; b<length-6; b+=6 )
+    {
+        WS_dim(0xFF, 0x00, 0x00, brightness);
+        WS_dim(0xFF, 0xFF, 0x00, brightness);
+        WS_dim(0x00, 0xFF, 0x00, brightness);
+        WS_dim(0x00, 0xFF, 0xFF, brightness);
+        WS_dim(0x00, 0x00, 0xFF, brightness);
+        WS_dim(0xFF, 0x00, 0xFF, brightness);
+    }
+    while(b < length)
+    {
+        WS_dim(0xFF, 0x00, 0x00, brightness);
+        b++;
+        if(b == length) break;
+        WS_dim(0xFF, 0xFF, 0x00, brightness);
+        b++;
+        if(b == length) break;
+        WS_dim(0x00, 0xFF, 0x00, brightness);
+        b++;
+        if(b == length) break;
+        WS_dim(0x00, 0xFF, 0xFF, brightness);
+        b++;
+        if(b == length) break;
+        WS_dim(0x00, 0x00, 0xFF, brightness);
+        b++;
+        if(b == length) break;
+        WS_dim(0xFF, 0x00, 0xFF, brightness);
+        b++;
+        if(b == length) break;
+    }
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
+}
 
-void WSTest(void)
+void WSTest(int length, int brightness)
 {
 
-    for(int i = 0; i<=100; i++)
+    for(int i = 0; i<length; i++)
     {
         WS_Word(0x00, 0x00, 0x00);
     }
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
-
-    WS_dim(0xFF, 0x00, 0x00, 50);
-    WS_dim(0xFF, 0xFF, 0x00, 50);
-    WS_dim(0x00, 0xFF, 0x00, 50);
-    WS_dim(0x00, 0xFF, 0xFF, 50);
-    WS_dim(0x00, 0x00, 0xFF, 50);
-    WS_dim(0xFF, 0x00, 0xFF, 50);
-
-
-    for(int i = 0; i<=100; i++)
-    {
-        WS_Word(0x00, 0x00, 0x00);
-    }
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    WS_RYGCBM(length, brightness);
     _delay((unsigned long)((250)*(32000000/4000.0)));
 }
+
+void WSWalk(int length, int brightness)
+{
+    for( int b = 0; b<=5; b++ )
+    {
+        int a = 0;
+        while( a <= length )
+        {
+            for( int i = 0; i<=5; i++)
+            {
+                if(a == 0)
+                {
+                    i = b;
+                }
+                WS_dim(
+                        ColorSetB[i][0],
+                        ColorSetB[i][1],
+                        ColorSetB[i][2],
+                        brightness
+                );
+                a++;
+                if(a == length){ break;}
+            }
+        }
+        _delay((unsigned long)((0.280)*(32000000/4000.0)));
+        _delay((unsigned long)((250)*(32000000/4000.0)));
+        _delay((unsigned long)((250)*(32000000/4000.0)));
+    }
+}
+
 
 void WSLoop(void)
 {
@@ -4581,7 +4674,7 @@ void WSLoop(void)
         WS_Word(0x00, 0x09, 0x09);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
     for(i = 0; i<=10; i++)
@@ -4594,7 +4687,7 @@ void WSLoop(void)
         WS_Word(0x09, 0x00, 0x09);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
 
@@ -4608,7 +4701,7 @@ void WSLoop(void)
         WS_Word(0x09, 0x09, 0x00);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
 
@@ -4622,7 +4715,7 @@ void WSLoop(void)
         WS_Word(0x00, 0x00, 0x09);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
     for(i = 0; i<=10; i++)
@@ -4636,7 +4729,7 @@ void WSLoop(void)
         WS_Word(0x00, 0x00, 0x09);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
 
@@ -4650,7 +4743,7 @@ void WSLoop(void)
         WS_Word(0xFF, 0x00, 0x00);
     }
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
     _delay((unsigned long)((250)*(32000000/4000.0)));
 
 
@@ -4658,17 +4751,16 @@ void WSLoop(void)
 
 }
 
-void WS_White(void)
+void WS_White(int length, int brightness)
 {
     GIE = 0;
 
-    WS_Word(0xff, 0xff, 0xff);
-    WS_Word(0xff, 0xff, 0xff);
-    WS_Word(0xff, 0xff, 0xff);
+    for(int i = 0; i<length; i++)
+    {
 
-    WS_Word(0xff, 0xff, 0xff);
-    WS_Word(0xff, 0xff, 0xff);
-    WS_Word(0xff, 0xff, 0xff);
 
-    _delay((unsigned long)((60.000)*(32000000/4000.0)));
+        WS_dim(0xff, 0xff, 0xff, brightness);
+    }
+
+    _delay((unsigned long)((0.280)*(32000000/4000.0)));
 }

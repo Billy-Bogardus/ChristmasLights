@@ -543,8 +543,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/adc1.c: 67:     ADCON1 = 0x00;
 [e = _ADCON1 -> -> 0 `i `uc ]
 "70
-[; ;mcc_generated_files/adc1.c: 70:     ADCON2 = 0xB8;
-[e = _ADCON2 -> -> 184 `i `uc ]
+[; ;mcc_generated_files/adc1.c: 70:     ADCON2 = 0xBE;
+[e = _ADCON2 -> -> 190 `i `uc ]
 "73
 [; ;mcc_generated_files/adc1.c: 73:     ADRESL = 0x00;
 [e = _ADRESL -> -> 0 `i `uc ]
@@ -552,8 +552,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/adc1.c: 76:     ADRESH = 0x00;
 [e = _ADRESH -> -> 0 `i `uc ]
 "79
-[; ;mcc_generated_files/adc1.c: 79:     ADCON0 = 0x01;
-[e = _ADCON0 -> -> 1 `i `uc ]
+[; ;mcc_generated_files/adc1.c: 79:     ADCON0 = 0x29;
+[e = _ADCON0 -> -> 41 `i `uc ]
 "82
 [; ;mcc_generated_files/adc1.c: 82:     PIE1bits.ADIE = 1;
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]

@@ -44,6 +44,13 @@
 #include "mcc_generated_files/mcc.h"
 #include "WS2812b/BitBangWS2812b.h"
 
+#define DOWN        0
+#define UP          1
+#define SWITCH      PORTAbits.RA5
+#define LED         LATCbits.LATC0
+#define LED2        LATCbits.LATC1
+
+#include <htc.h>   
 /*
                          Main application
  */
@@ -51,6 +58,9 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
+    LED2 = 1;
+    ADC1_Initialize();
+    ADC1_SelectChannel(channel_AN10);
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
     // Use the following macros to:
@@ -68,10 +78,45 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
     //WS_White(100, 2);
+    unsigned short tmp = 51;
+    int i=0;
     while (1)
     {
-        WSSlow(100, 32, 3);
-        //WSTest(100,2);
+        tmp = ADC1_GetConversion(channel_AN10) * 51/1023;
+
+        int brightness = (int) tmp;
+        
+        if (SWITCH == DOWN) {                         //switch is normally open to 5V ...when pressed, RA3 is connected to GND
+            __delay_ms(10);                           //debounce by delaying and checking if switch is still pressed
+            if (SWITCH == DOWN) {                     //check if still down
+                LED = 1;                              //turn on DS1
+                i++;
+            }
+        }
+        else
+            LED = 0; 
+        LED2 = 0;
+        if( !i )
+        {
+            WSWalk(50,brightness);
+        }
+        else if(i ==1)
+        {
+            WSSlow(100, brightness, 3);
+        }
+        else if(i == 2)
+        {
+            WSTest(100,brightness);
+        }
+        else
+        {
+            i = 0;
+            LED2 = 1;
+            __delay_ms(255);
+            LED2 = 0; 
+            __delay_ms(255); 
+        }
+        LED2 = 1;
     }
 }
 /**

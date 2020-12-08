@@ -9,6 +9,12 @@ channel_AN10 10
 channel_DAC 14
 channel_FVR 15
 ]
+"63 D:\UserData\Documents\KiCad\ChristmasLights\main.c
+[e E2465 . `uc
+channel_AN10 10
+channel_DAC 14
+channel_FVR 15
+]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\float.c
@@ -21,6 +27,8 @@ channel_FVR 15
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -35,10 +43,14 @@ channel_FVR 15
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"50 D:\UserData\Documents\KiCad\ChristmasLights\main.c
+"57 D:\UserData\Documents\KiCad\ChristmasLights\main.c
 [v _main main `(v  1 e 1 0 ]
 "62 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
 [v _ADC1_Initialize ADC1_Initialize `(v  1 e 1 0 ]
+"88
+[v _ADC1_SelectChannel ADC1_SelectChannel `(v  1 e 1 0 ]
+"115
+[v _ADC1_GetConversion ADC1_GetConversion `(us  1 e 2 0 ]
 "140
 [v _ADC1_ISR ADC1_ISR `(v  1 e 1 0 ]
 "151
@@ -55,18 +67,20 @@ channel_FVR 15
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "55 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"95
-[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-"10 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+"22 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
 [v _WS_dim WS_dim `(v  1 e 1 0 ]
-"28
+"40
 [v _WS_Word WS_Word `(v  1 e 1 0 ]
-"63
+"75
 [v _WS_Write WS_Write `(v  1 e 1 0 ]
-"83
+"95
 [v _WSSlow WSSlow `(v  1 e 1 0 ]
-"96
+"108
 [v _WS_RYGCBM WS_RYGCBM `(v  1 e 1 0 ]
+"144
+[v _WSTest WSTest `(v  1 e 1 0 ]
+"157
+[v _WSWalk WSWalk `(v  1 e 1 0 ]
 "557 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
 [v _WPUA WPUA `VEuc  1 e 1 @3959 ]
 "615
@@ -75,9 +89,60 @@ channel_FVR 15
 [v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
 "889
 [v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+[s S676 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"1025
+[s S683 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 MCLR 1 0 :1:3 
+`uc 1 AN3 1 0 :1:4 
+`uc 1 T13CKI 1 0 :1:5 
+]
+[s S690 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_MCLR 1 0 :1:3 
+]
+[s S693 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 C12IN0M 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 nMCLR 1 0 :1:3 
+`uc 1 OSC2 1 0 :1:4 
+`uc 1 OSC1 1 0 :1:5 
+]
+[s S700 . 1 `uc 1 VREFM 1 0 :1:0 
+`uc 1 VREFP 1 0 :1:1 
+`uc 1 T0CKI 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CLKOUT 1 0 :1:4 
+`uc 1 CLKIN 1 0 :1:5 
+]
+[s S707 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+]
+[s S711 . 1 `uc 1 PGD 1 0 :1:0 
+`uc 1 PGC 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 VPP 1 0 :1:3 
+]
+[s S716 . 1 `uc 1 C1INP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 SRQ 1 0 :1:2 
+]
+[s S720 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[u S724 . 1 `S676 1 . 1 0 `S683 1 . 1 0 `S690 1 . 1 0 `S693 1 . 1 0 `S700 1 . 1 0 `S707 1 . 1 0 `S711 1 . 1 0 `S716 1 . 1 0 `S720 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES724  1 e 1 @3968 ]
 "1542
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S186 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S529 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -85,19 +150,40 @@ channel_FVR 15
 `uc 1 LATA5 1 0 :1:5 
 ]
 "1565
-[s S193 . 1 `uc 1 LA0 1 0 :1:0 
+[s S536 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 LA4 1 0 :1:4 
 `uc 1 LA5 1 0 :1:5 
 ]
-[u S200 . 1 `S186 1 . 1 0 `S193 1 . 1 0 ]
-[v _LATAbits LATAbits `VES200  1 e 1 @3977 ]
+[u S543 . 1 `S529 1 . 1 0 `S536 1 . 1 0 ]
+[v _LATAbits LATAbits `VES543  1 e 1 @3977 ]
 "1620
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "1686
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
+[s S629 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1713
+[s S638 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S647 . 1 `S629 1 . 1 0 `S638 1 . 1 0 ]
+[v _LATCbits LATCbits `VES647  1 e 1 @3979 ]
 "1798
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1952
@@ -106,7 +192,7 @@ channel_FVR 15
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2304
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
-[s S294 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S180 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -115,13 +201,13 @@ channel_FVR 15
 `uc 1 ADIE 1 0 :1:6 
 ]
 "2395
-[s S302 . 1 `uc 1 . 1 0 :4:0 
+[s S188 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S306 . 1 `S294 1 . 1 0 `S302 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES306  1 e 1 @3997 ]
-[s S406 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S192 . 1 `S180 1 . 1 0 `S188 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES192  1 e 1 @3997 ]
+[s S296 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -130,70 +216,70 @@ channel_FVR 15
 `uc 1 ADIF 1 0 :1:6 
 ]
 "2466
-[s S414 . 1 `uc 1 . 1 0 :4:0 
+[s S304 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S418 . 1 `S406 1 . 1 0 `S414 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES418  1 e 1 @3998 ]
+[u S308 . 1 `S296 1 . 1 0 `S304 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES308  1 e 1 @3998 ]
 "4326
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
 "4397
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "4458
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S336 . 1 `uc 1 . 1 0 :1:0 
+[s S222 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "4502
-[s S339 . 1 `uc 1 ADON 1 0 :1:0 
+[s S225 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S343 . 1 `uc 1 . 1 0 :1:0 
+[s S229 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S350 . 1 `uc 1 . 1 0 :1:0 
+[s S236 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S353 . 1 `uc 1 . 1 0 :1:0 
+[s S239 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S356 . 1 `uc 1 . 1 0 :1:0 
+[s S242 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S359 . 1 `uc 1 . 1 0 :1:0 
+[s S245 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S362 . 1 `uc 1 . 1 0 :1:0 
+[s S248 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S365 . 1 `S336 1 . 1 0 `S339 1 . 1 0 `S343 1 . 1 0 `S350 1 . 1 0 `S353 1 . 1 0 `S356 1 . 1 0 `S359 1 . 1 0 `S362 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES365  1 e 1 @4034 ]
+[u S251 . 1 `S222 1 . 1 0 `S225 1 . 1 0 `S229 1 . 1 0 `S236 1 . 1 0 `S239 1 . 1 0 `S242 1 . 1 0 `S245 1 . 1 0 `S248 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES251  1 e 1 @4034 ]
 "4584
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4591
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S473 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S363 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5320
-[s S475 . 1 `uc 1 . 1 0 :1:0 
+[s S365 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S478 . 1 `uc 1 . 1 0 :2:0 
+[s S368 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S481 . 1 `uc 1 . 1 0 :3:0 
+[s S371 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S484 . 1 `uc 1 . 1 0 :4:0 
+[s S374 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S487 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S377 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -202,14 +288,14 @@ channel_FVR 15
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S496 . 1 `uc 1 BOR 1 0 :1:0 
+[s S386 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S502 . 1 `S473 1 . 1 0 `S475 1 . 1 0 `S478 1 . 1 0 `S481 1 . 1 0 `S484 1 . 1 0 `S487 1 . 1 0 `S496 1 . 1 0 ]
-[v _RCONbits RCONbits `VES502  1 e 1 @4048 ]
+[u S392 . 1 `S363 1 . 1 0 `S365 1 . 1 0 `S368 1 . 1 0 `S371 1 . 1 0 `S374 1 . 1 0 `S377 1 . 1 0 `S386 1 . 1 0 ]
+[v _RCONbits RCONbits `VES392  1 e 1 @4048 ]
 "5438
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "5470
@@ -271,80 +357,124 @@ channel_FVR 15
 [v _GIE GIE `VEb  1 e 0 @32663 ]
 "60 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
 [v _ADC1_InterruptHandler ADC1_InterruptHandler `*.37(v  1 e 2 0 ]
-"50 D:\UserData\Documents\KiCad\ChristmasLights\main.c
+"11 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+[v _ColorSetB ColorSetB `C[7][3]i  1 s 42 ColorSetB ]
+"57 D:\UserData\Documents\KiCad\ChristmasLights\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"76
+"87
+[v main@brightness brightness `i  1 a 2 60 ]
+"82
+[v main@i i `i  1 a 2 62 ]
+"81
+[v main@tmp tmp `us  1 a 2 58 ]
+"121
 } 0
-"83 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+"7 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 17 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 19 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 13 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 15 ]
+"30
+} 0
+"157 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+[v _WSWalk WSWalk `(v  1 e 1 0 ]
+{
+"164
+[v WSWalk@i i `i  1 a 2 50 ]
+"161
+[v WSWalk@a a `i  1 a 2 48 ]
+"159
+[v WSWalk@b b `i  1 a 2 46 ]
+"157
+[v WSWalk@length length `i  1 p 2 34 ]
+[v WSWalk@brightness brightness `i  1 p 2 36 ]
+"184
+} 0
+"144
+[v _WSTest WSTest `(v  1 e 1 0 ]
+{
+"147
+[v WSTest@i i `i  1 a 2 51 ]
+"144
+[v WSTest@length length `i  1 p 2 45 ]
+[v WSTest@brightness brightness `i  1 p 2 47 ]
+"155
+} 0
+"95
 [v _WSSlow WSSlow `(v  1 e 1 0 ]
 {
-"90
-[v WSSlow@i_263 i `i  1 a 2 54 ]
-"85
+"102
+[v WSSlow@i_606 i `i  1 a 2 54 ]
+"97
 [v WSSlow@i i `i  1 a 2 52 ]
-"83
+"95
 [v WSSlow@lengh lengh `i  1 p 2 45 ]
 [v WSSlow@maxBrightness maxBrightness `i  1 p 2 47 ]
 [v WSSlow@minBrightness minBrightness `i  1 p 2 49 ]
-"95
+"107
 } 0
-"96
+"108
 [v _WS_RYGCBM WS_RYGCBM `(v  1 e 1 0 ]
 {
-"98
+"110
 [v WS_RYGCBM@b b `i  1 a 2 43 ]
-"96
+"108
 [v WS_RYGCBM@length length `i  1 p 2 34 ]
 [v WS_RYGCBM@brightness brightness `i  1 p 2 36 ]
-"130
+"142
 } 0
-"10
+"22
 [v _WS_dim WS_dim `(v  1 e 1 0 ]
 {
-"12
+"24
 [v WS_dim@f f `i  1 a 2 32 ]
-"10
+"22
 [v WS_dim@A A `i  1 p 2 23 ]
 [v WS_dim@B B `i  1 p 2 25 ]
 [v WS_dim@C C `i  1 p 2 27 ]
 [v WS_dim@brightness brightness `i  1 p 2 29 ]
-"26
+"38
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 6 ]
+[v ___wmul@product product `ui  1 a 2 11 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 7 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 9 ]
 "53
 } 0
-"28 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
+"40 D:\UserData\Documents\KiCad\ChristmasLights\WS2812b/BitBangWS2812b.c
 [v _WS_Word WS_Word `(v  1 e 1 0 ]
 {
-"51
-[v WS_Word@x_249 x `i  1 a 2 17 ]
-"46
-[v WS_Word@x_248 x `i  1 a 2 15 ]
-"41
+"63
+[v WS_Word@x_592 x `i  1 a 2 17 ]
+"58
+[v WS_Word@x_591 x `i  1 a 2 15 ]
+"53
 [v WS_Word@x x `i  1 a 2 13 ]
-"37
+"49
 [v WS_Word@i i `i  1 a 2 21 ]
-"36
+"48
 [v WS_Word@Bx Bx `i  1 a 2 19 ]
-"28
+"40
 [v WS_Word@A A `i  1 p 2 4 ]
 [v WS_Word@B B `i  1 p 2 6 ]
 [v WS_Word@C C `i  1 p 2 8 ]
-"60
+"72
 } 0
-"63
+"75
 [v _WS_Write WS_Write `(v  1 e 1 0 ]
 {
 [v WS_Write@A A `i  1 p 2 2 ]
-"82
+"94
 } 0
 "50 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -354,7 +484,7 @@ channel_FVR 15
 "55 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"93
+"91
 } 0
 "59 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
@@ -377,15 +507,28 @@ channel_FVR 15
 [v ADC1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
 "153
 } 0
+"88
+[v _ADC1_SelectChannel ADC1_SelectChannel `(v  1 e 1 0 ]
+{
+[v ADC1_SelectChannel@channel channel `E2449  1 a 1 wreg ]
+[v ADC1_SelectChannel@channel channel `E2449  1 a 1 wreg ]
+"91
+[v ADC1_SelectChannel@channel channel `E2449  1 a 1 3 ]
+"94
+} 0
+"115
+[v _ADC1_GetConversion ADC1_GetConversion `(us  1 e 2 0 ]
+{
+[v ADC1_GetConversion@channel channel `E2449  1 a 1 wreg ]
+[v ADC1_GetConversion@channel channel `E2449  1 a 1 wreg ]
+"118
+[v ADC1_GetConversion@channel channel `E2449  1 a 1 6 ]
+"133
+} 0
 "58 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
 {
-"80
-} 0
-"95 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-{
-"99
+"76
 } 0
 "140 D:\UserData\Documents\KiCad\ChristmasLights\mcc_generated_files/adc1.c
 [v _ADC1_ISR ADC1_ISR `(v  1 e 1 0 ]

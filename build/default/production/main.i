@@ -4354,9 +4354,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 112 "./mcc_generated_files/pin_manager.h"
+# 154 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 124 "./mcc_generated_files/pin_manager.h"
+# 166 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -4537,6 +4537,8 @@ void OSCILLATOR_Initialize(void);
 # 44 "main.c" 2
 
 # 1 "./WS2812b/BitBangWS2812b.h" 1
+# 37 "./WS2812b/BitBangWS2812b.h"
+static const int ColorSetB[7][3];
 # 48 "./WS2812b/BitBangWS2812b.h"
 void WS_dim(int A, int B, int C, int brightness);
 # 58 "./WS2812b/BitBangWS2812b.h"
@@ -4560,6 +4562,11 @@ void WSTest(int length, int brightness);
 
 
 
+void WSWalk(int length, int brightness);
+
+
+
+
 void WSLoop(void);
 
 
@@ -4568,19 +4575,53 @@ void WSLoop(void);
 
 void WS_White(int length, int brightness);
 # 45 "main.c" 2
-
-
-
-
-
+# 57 "main.c"
 void main(void)
 {
 
     SYSTEM_Initialize();
-# 71 "main.c"
+    LATCbits.LATC1 = 1;
+    ADC1_Initialize();
+    ADC1_SelectChannel(channel_AN10);
+# 81 "main.c"
+    unsigned short tmp = 51;
+    int i=0;
     while (1)
     {
-        WSSlow(100, 32, 3);
+        tmp = ADC1_GetConversion(channel_AN10) * 51/1023;
 
+        int brightness = (int) tmp;
+
+        if (PORTAbits.RA5 == 0) {
+            _delay((unsigned long)((10)*(32000000/4000.0)));
+            if (PORTAbits.RA5 == 0) {
+                LATCbits.LATC0 = 1;
+                i++;
+            }
+        }
+        else
+            LATCbits.LATC0 = 0;
+        LATCbits.LATC1 = 0;
+        if( !i )
+        {
+            WSWalk(50,brightness);
+        }
+        else if(i ==1)
+        {
+            WSSlow(100, brightness, 3);
+        }
+        else if(i == 2)
+        {
+            WSTest(100,brightness);
+        }
+        else
+        {
+            i = 0;
+            LATCbits.LATC1 = 1;
+            _delay((unsigned long)((255)*(32000000/4000.0)));
+            LATCbits.LATC1 = 0;
+            _delay((unsigned long)((255)*(32000000/4000.0)));
+        }
+        LATCbits.LATC1 = 1;
     }
 }

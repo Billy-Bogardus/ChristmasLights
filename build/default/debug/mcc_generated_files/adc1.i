@@ -4500,7 +4500,7 @@ void ADC1_Initialize(void)
     ADCON1 = 0x00;
 
 
-    ADCON2 = 0xB8;
+    ADCON2 = 0xBE;
 
 
     ADRESL = 0x00;
@@ -4509,7 +4509,7 @@ void ADC1_Initialize(void)
     ADRESH = 0x00;
 
 
-    ADCON0 = 0x01;
+    ADCON0 = 0x29;
 
 
     PIE1bits.ADIE = 1;

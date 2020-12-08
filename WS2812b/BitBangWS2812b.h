@@ -34,7 +34,7 @@
 #define WSERROR 0.150
 **/
 // declare variables
-
+static const int ColorSetB[7][3];
 
 
 /**
@@ -71,6 +71,11 @@ void WS_RYGCBM(int length, int brightness);
  * 
  */
 void WSTest(int length, int brightness);
+
+/**
+ * 
+ */
+void WSWalk(int length, int brightness);
 
 /**
  * 

@@ -6,6 +6,18 @@
  */
 
 #include "BitBangWS2812b.h"
+#define DOUT LATAbits.LATA2
+
+static const int ColorSetB[7][3] ={
+    {0xFF, 0x00, 0x00}, //0 Red
+    {0xFF, 0xFF, 0x00}, //1 Yellow
+    {0x00, 0xFF, 0x00}, //2 Green
+    {0x00, 0xFF, 0xFF}, //3 Cyan
+    {0x00, 0x00, 0xFF}, //4 Blue
+    {0xFF, 0x00, 0xFF}, //5 Magenta
+    {0x00, 0x00, 0x00}  //6 Off
+};
+
 
 void WS_dim(int A, int B, int C, int brightness)
 {
@@ -64,16 +76,16 @@ void WS_Write( int A )
 {
     if(A)//send a 1
     {
-        LATAbits.LATA2 = 1;//must stay high >0.35us
+        DOUT = 1;//must stay high >0.35us
         NOP();
         NOP();
         NOP();
-        LATAbits.LATA2 = 0;
+        DOUT = 0;
     }
     else //send a 0
     {
-        LATAbits.LATA2 = 1;//must stay high <0.35us
-        LATAbits.LATA2 = 0;
+        DOUT = 1;//must stay high <0.35us
+        DOUT = 0;
         //NOP();//These NOP statements are not really needed for the WS2812 to work.
         //NOP();
         //NOP();
@@ -141,6 +153,36 @@ void WSTest(int length, int brightness)
     WS_RYGCBM(length, brightness);
     __delay_ms(250);
 }
+
+void WSWalk(int length, int brightness)
+{
+    for( int b = 0; b<=5; b++ )
+    {
+        int a = 0;
+        while( a <= length )
+        {
+            for( int i = 0; i<=5; i++)
+            {
+                if(a == 0)
+                {
+                    i = b;
+                }
+                WS_dim( 
+                        ColorSetB[i][0], 
+                        ColorSetB[i][1], 
+                        ColorSetB[i][2],
+                        brightness
+                );
+                a++;
+                if(a == length){ break;}
+            }
+        }
+        __delay_ms(WSReset);
+        __delay_ms(250);
+        __delay_ms(250);
+    }
+}
+
 //WSLoop function for bitbanging WS2812B controlls
 void WSLoop(void)
 {

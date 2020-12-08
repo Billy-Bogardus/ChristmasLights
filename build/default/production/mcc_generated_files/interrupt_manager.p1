@@ -59,10 +59,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6124
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 6124: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS276 ~T0 @X0 0 e@4082 ]
-"124 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 124: void PIN_MANAGER_IOC(void);
-[v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
-"2380 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h
+"2380
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f14k22.h: 2380:     struct {
 [s S102 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S102 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
@@ -546,64 +543,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
 "61
-[; ;mcc_generated_files/interrupt_manager.c: 61:     if(INTCONbits.RABIE == 1 && INTCONbits.RABIF == 1)
-[e $ ! && == -> . . _INTCONbits 0 3 `i -> 1 `i == -> . . _INTCONbits 0 0 `i -> 1 `i 287  ]
+[; ;mcc_generated_files/interrupt_manager.c: 61:     if(INTCONbits.PEIE == 1)
+[e $ ! == -> . . _INTCONbits 1 6 `i -> 1 `i 287  ]
 "62
 [; ;mcc_generated_files/interrupt_manager.c: 62:     {
 {
 "63
-[; ;mcc_generated_files/interrupt_manager.c: 63:         PIN_MANAGER_IOC();
-[e ( _PIN_MANAGER_IOC ..  ]
+[; ;mcc_generated_files/interrupt_manager.c: 63:         if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+[e $ ! && == -> . . _PIE1bits 0 6 `i -> 1 `i == -> . . _PIR1bits 0 6 `i -> 1 `i 288  ]
 "64
-[; ;mcc_generated_files/interrupt_manager.c: 64:     }
-}
-[e $U 288  ]
-"65
-[; ;mcc_generated_files/interrupt_manager.c: 65:     else if(INTCONbits.PEIE == 1)
-[e :U 287 ]
-[e $ ! == -> . . _INTCONbits 1 6 `i -> 1 `i 289  ]
-"66
-[; ;mcc_generated_files/interrupt_manager.c: 66:     {
+[; ;mcc_generated_files/interrupt_manager.c: 64:         {
 {
+"65
+[; ;mcc_generated_files/interrupt_manager.c: 65:             ADC1_ISR();
+[e ( _ADC1_ISR ..  ]
+"66
+[; ;mcc_generated_files/interrupt_manager.c: 66:         }
+}
+[e $U 289  ]
 "67
-[; ;mcc_generated_files/interrupt_manager.c: 67:         if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-[e $ ! && == -> . . _PIE1bits 0 6 `i -> 1 `i == -> . . _PIR1bits 0 6 `i -> 1 `i 290  ]
+[; ;mcc_generated_files/interrupt_manager.c: 67:         else
+[e :U 288 ]
 "68
 [; ;mcc_generated_files/interrupt_manager.c: 68:         {
 {
-"69
-[; ;mcc_generated_files/interrupt_manager.c: 69:             ADC1_ISR();
-[e ( _ADC1_ISR ..  ]
 "70
 [; ;mcc_generated_files/interrupt_manager.c: 70:         }
 }
-[e $U 291  ]
+[e :U 289 ]
 "71
-[; ;mcc_generated_files/interrupt_manager.c: 71:         else
-[e :U 290 ]
-"72
-[; ;mcc_generated_files/interrupt_manager.c: 72:         {
-{
-"74
-[; ;mcc_generated_files/interrupt_manager.c: 74:         }
+[; ;mcc_generated_files/interrupt_manager.c: 71:     }
 }
-[e :U 291 ]
+[e $U 290  ]
+"72
+[; ;mcc_generated_files/interrupt_manager.c: 72:     else
+[e :U 287 ]
+"73
+[; ;mcc_generated_files/interrupt_manager.c: 73:     {
+{
 "75
 [; ;mcc_generated_files/interrupt_manager.c: 75:     }
 }
-[e $U 292  ]
+[e :U 290 ]
 "76
-[; ;mcc_generated_files/interrupt_manager.c: 76:     else
-[e :U 289 ]
-"77
-[; ;mcc_generated_files/interrupt_manager.c: 77:     {
-{
-"79
-[; ;mcc_generated_files/interrupt_manager.c: 79:     }
-}
-[e :U 292 ]
-[e :U 288 ]
-"80
-[; ;mcc_generated_files/interrupt_manager.c: 80: }
+[; ;mcc_generated_files/interrupt_manager.c: 76: }
 [e :UE 286 ]
 }

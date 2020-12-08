@@ -58,11 +58,7 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(INTCONbits.RABIE == 1 && INTCONbits.RABIF == 1)
-    {
-        PIN_MANAGER_IOC();
-    }
-    else if(INTCONbits.PEIE == 1)
+    if(INTCONbits.PEIE == 1)
     {
         if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
